@@ -11,7 +11,7 @@ class ArticlesParams {
   }
 
   Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['period'] = period;
     return data;
   }

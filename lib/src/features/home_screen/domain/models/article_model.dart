@@ -31,52 +31,33 @@ class ArticleModel {
 
   ArticleModel(
       {this.uri = '',
-      this.url= '',
-      this.id= 0,
-      this.assetId= 0,
-      this.source= '',
-      this.publishedDate= '',
-      this.updated= '',
-      this.section= '',
-      this.subsection= '',
-      this.nyTdSection= '',
-      this.adxKeywords= '',
-      this.column= '',
-      this.byline= '',
-      this.type= '',
-      this.title= '',
-      this.abstract= '',
-      this.desFacet= const [],
-      this.orgFacet= const [],
-      this.perFacet= const [],
-      this.geoFacet= const [],
-      this.media= const [],
+      this.url = '',
+      this.id = 0,
+      this.assetId = 0,
+      this.source = '',
+      this.publishedDate = '',
+      this.updated = '',
+      this.section = '',
+      this.subsection = '',
+      this.nyTdSection = '',
+      this.adxKeywords = '',
+      this.column = '',
+      this.byline = '',
+      this.type = '',
+      this.title = '',
+      this.abstract = '',
+      this.desFacet = const <String>[],
+      this.orgFacet = const <String>[],
+      this.perFacet = const <String>[],
+      this.geoFacet = const <String>[],
+      this.media = const <MediaModel>[],
       this.etaId});
 
-  factory ArticleModel.fromJson(json) =>
-      _$ArticleModelFromJson(json);
+  factory ArticleModel.fromJson(dynamic json) => _$ArticleModelFromJson(json);
 
-  toJson() => _$ArticleModelToJson(this);
+  dynamic toJson() => _$ArticleModelToJson(this);
 
-  static List<ArticleModel> fromJsonList(List? json) {
-    return json?.map((e) => ArticleModel.fromJson(e)).toList() ?? [];
+  static List<ArticleModel> fromJsonList(List<dynamic> json) {
+    return json.map((dynamic e) => ArticleModel.fromJson(e)).toList();
   }
-
-
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (other.runtimeType != runtimeType) {
-      return false;
-    }
-    if (other is ArticleModel) {
-      return other.id == id;
-    }
-
-    return false;
-  }
-
 }

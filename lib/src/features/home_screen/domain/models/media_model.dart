@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'media_meta_data_model.dart';
 
 part 'media_model.g.dart';
+
 @JsonSerializable(fieldRename: FieldRename.snake)
 class MediaModel {
   String type;
@@ -14,17 +15,17 @@ class MediaModel {
 
   MediaModel(
       {this.type = '',
-      this.subtype= '',
-      this.caption= '',
-      this.copyright= '',
-      this.approvedForSyndication= 0,
-      this.mediaMetadata = const []});
+      this.subtype = '',
+      this.caption = '',
+      this.copyright = '',
+      this.approvedForSyndication = 0,
+      this.mediaMetadata = const <MediaMetaDataModel>[]});
 
-  factory MediaModel.fromJson(json) => _$MediaModelFromJson(json);
+  factory MediaModel.fromJson(dynamic json) => _$MediaModelFromJson(json);
 
-  toJson() => _$MediaModelToJson(this);
+  dynamic toJson() => _$MediaModelToJson(this);
 
-  static List<MediaModel> fromJsonList(List json) {
-    return json.map((e) => MediaModel.fromJson(e)).toList();
+  static List<MediaModel> fromJsonList(List<dynamic> json) {
+    return json.map((dynamic e) => MediaModel.fromJson(e)).toList();
   }
 }

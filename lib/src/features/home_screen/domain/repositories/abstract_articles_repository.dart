@@ -5,5 +5,6 @@ import 'package:flutter_clean_architecture/src/features/home_screen/domain/model
 
 abstract class AbstractArticleRepository {
   // get all the articles by params
-  Future<Either<Failure, List<ArticleModel>>> getArticles(ArticlesParams articlesParams);
+  Future<Either<Failure, List<ArticleModel>>> getArticles(
+      ArticlesParams articlesParams);
 }

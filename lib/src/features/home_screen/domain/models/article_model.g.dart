@@ -24,25 +24,25 @@ ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) => ArticleModel(
       title: json['title'] as String? ?? '',
       abstract: json['abstract'] as String? ?? '',
       desFacet: (json['des_facet'] as List<dynamic>?)
-              ?.map((e) => e as String)
+              ?.map((dynamic e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       orgFacet: (json['org_facet'] as List<dynamic>?)
-              ?.map((e) => e as String)
+              ?.map((dynamic e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       perFacet: (json['per_facet'] as List<dynamic>?)
-              ?.map((e) => e as String)
+              ?.map((dynamic e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       geoFacet: (json['geo_facet'] as List<dynamic>?)
-              ?.map((e) => e as String)
+              ?.map((dynamic e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       media: (json['media'] as List<dynamic>?)
               ?.map(MediaModel.fromJson)
               .toList() ??
-          const [],
+          const <MediaModel>[],
       etaId: json['eta_id'] as int?,
     );
 

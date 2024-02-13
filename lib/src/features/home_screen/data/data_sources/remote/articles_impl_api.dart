@@ -13,6 +13,7 @@ class ArticlesImplApi extends AbstractArticleApi {
   Future<ApiResponse<List<ArticleModel>>> getArticles(
       ArticlesParams params) async {
     try {
+      // ignore: always_specify_types
       final results =
           await dio.get(NetworkConstants.getArticlePath(params.period));
 
@@ -21,7 +22,7 @@ class ArticlesImplApi extends AbstractArticleApi {
       }
       return ApiResponse.fromJson<List<ArticleModel>>(
           results.data, ArticleModel.fromJsonList);
-    }  on ServerException {
+    } on ServerException {
       rethrow;
     } catch (e) {
       throw ServerException(e.toString(), null);

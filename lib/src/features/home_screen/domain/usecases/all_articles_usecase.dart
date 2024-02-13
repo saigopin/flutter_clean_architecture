@@ -11,11 +11,12 @@ class AllArticlesUseCase extends UseCase<List<ArticleModel>, ArticlesParams> {
   @override
   Future<Either<Failure, List<ArticleModel>>> call(
       ArticlesParams params) async {
-    final results = await repository.getArticles(params);
-    return results.fold((l) {
-      return Left(l);
-    }, (r) async {
-      return Right(r);
+    final Either<Failure, List<ArticleModel>> results =
+        await repository.getArticles(params);
+    return results.fold((Failure l) {
+      return Left<Failure, List<ArticleModel>>(l);
+    }, (List<ArticleModel> r) async {
+      return Right<Failure, List<ArticleModel>>(r);
     });
   }
 }

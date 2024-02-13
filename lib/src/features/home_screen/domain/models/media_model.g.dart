@@ -15,7 +15,7 @@ MediaModel _$MediaModelFromJson(Map<String, dynamic> json) => MediaModel(
       mediaMetadata: (json['media-metadata'] as List<dynamic>?)
               ?.map(MediaMetaDataModel.fromJson)
               .toList() ??
-          const [],
+          const <MediaMetaDataModel>[],
     );
 
 Map<String, dynamic> _$MediaModelToJson(MediaModel instance) =>

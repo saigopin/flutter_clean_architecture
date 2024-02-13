@@ -14,13 +14,13 @@ void initRootLogger() {
   }
   hierarchicalLoggingEnabled = true;
 
-  Logger.root.onRecord.listen((record) {
+  Logger.root.onRecord.listen((LogRecord record) {
     if (!kDebugMode) {
       return;
     }
 
-    var start = '\x1b[90m';
-    const end = '\x1b[0m';
+    String start = '\x1b[90m';
+    String end = '\x1b[0m';
     // const white = '\x1b[37m';
 
     switch (record.level.name) {
@@ -38,7 +38,7 @@ void initRootLogger() {
         break;
     }
 
-    final message = '$end$start${record.message}$end';
+    final String message = '$end$start${record.message}$end';
     developer.log(
       message,
       // name: record.loggerName.padRight(25),

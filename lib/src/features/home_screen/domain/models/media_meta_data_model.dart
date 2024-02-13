@@ -9,14 +9,15 @@ class MediaMetaDataModel {
   int height;
   int width;
 
-  MediaMetaDataModel({this.url = '', this.format= '', this.height = 0, this.width= 0});
+  MediaMetaDataModel(
+      {this.url = '', this.format = '', this.height = 0, this.width = 0});
 
-  factory MediaMetaDataModel.fromJson(json) =>
+  factory MediaMetaDataModel.fromJson(dynamic json) =>
       _$MediaMetaDataModelFromJson(json);
 
-  toJson() => _$MediaMetaDataModelToJson(this);
+  dynamic toJson() => _$MediaMetaDataModelToJson(this);
 
-  static List<MediaMetaDataModel> fromJsonList(List json) {
-    return json.map((e) => MediaMetaDataModel.fromJson(e)).toList();
+  static List<MediaMetaDataModel> fromJsonList(List<dynamic> json) {
+    return json.map((dynamic e) => MediaMetaDataModel.fromJson(e)).toList();
   }
 }

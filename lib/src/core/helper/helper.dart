@@ -3,7 +3,6 @@ import 'package:flutter_clean_architecture/src/shared/data/local_data/app_shared
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Helper {
-
   /// Get vertical space
   static double getVerticalSpace() {
     return 10.h;
@@ -16,7 +15,7 @@ class Helper {
 
   /// Get Dio Header
   static Map<String, dynamic> getHeaders() {
-    return {}..removeWhere((key, value) => value == null);
+    return <String, dynamic>{'token': ''};
   }
 
   static bool isDarkTheme() {

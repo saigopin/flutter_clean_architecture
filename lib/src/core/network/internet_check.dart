@@ -9,7 +9,8 @@ class NetworkInfoImpl implements NetworkInfo {
   @override
   Future<bool> isConnected() async {
     try {
-      final connectivityResult = await Connectivity().checkConnectivity();
+      final ConnectivityResult connectivityResult =
+          await Connectivity().checkConnectivity();
       return connectivityResult != ConnectivityResult.none;
     } catch (e) {
       Logger.print(message: e.toString());
