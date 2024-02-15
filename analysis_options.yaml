@@ -13,7 +13,8 @@ linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
   # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
+  # and their documentation is published at
+  # https://dart-lang.github.io/linter/lints/index.html.
   #
   # Instead of disabling a lint rule for the entire project in the
   # section below, it can also be suppressed for a single line of code
@@ -21,8 +22,24 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # error rules => Possible errors or mistakes in your code.
+    prefer_single_quotes: true  # Use single quotes for strings containing single quotes when possible.
+    always_declare_return_types : true # Methods or functions must always have explicitly declared return types.
+    camel_case_types: true  # Use camelCase for type names.
+    avoid_empty_else: true  # Avoid empty 'else' blocks in conditional statements.
+    cancel_subscriptions: true  # Ensure proper cancellation of subscriptions in asynchronous code.
+    close_sinks: true  # Make sure to close data sinks or resources properly.
+    # styles rules => Matters of style, largely derived from the Dart style guide.
+    unnecessary_statements: true  # Eliminate unnecessary statements in the code.
+    always_specify_types: true  # Always specify variable types explicitly.
+    await_only_futures: true  # Only use 'await' with futures or asynchronous operations.
+    curly_braces_in_flow_control_structures: true  # Enforce the use of curly braces in flow control structures.
+    empty_catches: true  # Avoid empty 'catch' blocks in exception handling.
+    lines_longer_than_80_chars: true  # Avoid lines longer than 80 characters in code.
+    file_names: true  # Name source files using lowercase_with_underscores.
+    unnecessary_brace_in_string_interps: true  # Avoid using braces in string interpolation when not needed.
+
+    
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

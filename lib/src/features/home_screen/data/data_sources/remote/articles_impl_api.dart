@@ -13,6 +13,7 @@ class ArticlesImplApi extends AbstractArticleApi {
   Future<ApiResponse<List<ArticleDto>>> getArticles(
       ArticlesParams params) async {
     try {
+      // ignore: always_specify_types
       final results =
           await dio.get(NetworkConstants.getArticlePath(params.period));
 

@@ -14,12 +14,15 @@ class ArticlesRepoImpl extends AbstractArticleRepository {
  ResultFuture<List<ArticleDto>> getArticles(
       ArticlesParams articlesParams) async {
     try {
-      final results = await articlesImplApi.getArticles(articlesParams);
-      return Right(results.results);
+      final ApiResponse<List<ArticleModel>> results =
+          await articlesImplApi.getArticles(articlesParams);
+      return Right<Failure, List<ArticleModel>>(results.results);
     } on ServerException catch (e) {
-      return Left(ServerFailure(e.message,e.statusCode));
-    }on CancelTokenException catch(e){
-      return Left(ServerFailure(e.message,e.statusCode));
+      return Left<Failure, List<ArticleModel>>(
+          ServerFailure(e.message, e.statusCode));
+    } on CancelTokenException catch (e) {
+      return Left<Failure, List<ArticleModel>>(
+          ServerFailure(e.message, e.statusCode));
     }
   }
 }

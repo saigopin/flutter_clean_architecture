@@ -6,7 +6,7 @@ import 'package:flutter_clean_architecture/src/features/home_screen/domain/useca
 
 import 'domain/repositories/abstract_articles_repository.dart';
 
-initArticleInjections() {
+void initArticleInjections() {
   sl.registerSingleton<ArticlesImplApi>(ArticlesImplApi(DioNetwork.appAPI));
   sl.registerSingleton<AbstractArticleRepository>(ArticlesRepoImpl(sl()));
   sl.registerSingleton<AllArticlesUseCase>(AllArticlesUseCase(sl()));

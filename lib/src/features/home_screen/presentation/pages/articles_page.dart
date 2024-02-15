@@ -30,34 +30,32 @@ class _AritclesPageState extends State<AritclesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Articles"),
+        title: const Text('Articles'),
       ),
-      body: BlocConsumer(
+      body: BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
-        listener: (context, state) {
+        listener: (BuildContext context, ArticlesState state) {
           if (state is SuccessGetArticlesState) {
             articleModelList = state.articles;
           }
         },
-        builder: (context, state) {
+        builder: (BuildContext context, ArticlesState state) {
           if (state is LoadingGetArticlesState) {
             return const CircularProgressIndicator();
           } else if (state is ErrorGetArticlesState) {
-            return Text("Retry again ${state.message}");
+            return Text('Retry again ${state.message}');
           }
           if (articleModelList.isEmpty) {
-            return Text("No Articles");
+            return const Text('No Articles');
           } else {
-            return Text("Articles ${articleModelList.length}");
+            return Text('Articles ${articleModelList.length}');
           }
         },
       ),
     );
   }
 
-  callArticles() {
-    _articlesBloc.add(OnGettingArticlesEvent(
-      period: 1
-    ));
+  void callArticles() {
+    _articlesBloc.add(OnGettingArticlesEvent(period: 1));
   }
 }

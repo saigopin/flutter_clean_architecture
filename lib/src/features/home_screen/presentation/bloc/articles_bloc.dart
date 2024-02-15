@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/errors/failures.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/artciles_params.dart';
@@ -15,36 +16,36 @@ class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
     on<OnSearchingArticlesEvents>(_onSearchingEvent);
   }
 
-  _onGettingArticlesEvent(
+  void _onGettingArticlesEvent(
       OnGettingArticlesEvent event, Emitter<ArticlesState> emittor) async {
     if (event.wihtLoading) {
       emittor(LoadingGetArticlesState());
     }
 
-    final result =
+    final Either<Failure, List<ArticleModel>> result =
         await allArticlesUseCase.call(ArticlesParams(period: event.period));
 
-    result.fold((l) {
+    result.fold((Failure l) {
       if (l is CancelTokenFailure) {
         emittor(LoadingGetArticlesState());
       } else {
         emittor(ErrorGetArticlesState(l.errorMessage));
       }
-    }, (r) {
+    }, (List<ArticleModel> r) {
       allArticlesList = r;
       emittor(SuccessGetArticlesState(_runFilter(event.text)));
     });
   }
 
-  _onSearchingEvent(
+  void _onSearchingEvent(
       OnSearchingArticlesEvents event, Emitter<ArticlesState> emittor) async {}
 
   List<Article> _runFilter(String text) {
     List<Article> results = [];
     if (text.isEmpty) {
-      results = List.from(allArticlesList);
+      results = allArticlesList;
     } else {
-      results = allArticlesList.where((element) {
+      results = allArticlesList.where((ArticleModel element) {
         return (element.title).toLowerCase().contains(text.toString());
       }).toList();
     }

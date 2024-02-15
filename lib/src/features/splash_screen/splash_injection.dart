@@ -1,1 +1,1 @@
-initIntroInjections() {}
+void initIntroInjections() {}

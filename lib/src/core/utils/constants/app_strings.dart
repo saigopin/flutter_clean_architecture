@@ -1,3 +1,3 @@
 class AppStrings {
-  static const appName = 'LendingCart';
+  static const String appName = 'LendingCart';
 }

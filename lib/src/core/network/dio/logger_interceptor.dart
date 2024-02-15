@@ -33,7 +33,8 @@ class LoggerInterceptor extends Interceptor {
   bool error;
 
   @override
-  Future onRequest(RequestOptions options, handler) async {
+  Future<void> onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     logPrint('*** Request ***');
     _printKV('uri', options.uri);
 
@@ -47,7 +48,7 @@ class LoggerInterceptor extends Interceptor {
     }
     if (requestHeader) {
       logPrint('headers:');
-      options.headers.forEach((key, v) => _printKV(' $key', v));
+      options.headers.forEach((String key, dynamic v) => _printKV(' $key', v));
     }
     if (requestBody) {
       logPrint('data:');
@@ -58,7 +59,8 @@ class LoggerInterceptor extends Interceptor {
   }
 
   @override
-  Future onError(DioException err, handler) async {
+  Future<void> onError(
+      DioException err, ErrorInterceptorHandler handler) async {
     if (error) {
       _printKVError('', '*** DioError ***:');
       _printKVError('', 'uri: ${err.requestOptions.uri}');
@@ -72,13 +74,14 @@ class LoggerInterceptor extends Interceptor {
   }
 
   @override
-  Future onResponse(Response response, handler) async {
+  Future<void> onResponse(
+      Response<dynamic> response, ResponseInterceptorHandler handler) async {
     logPrint('*** Response ***');
     _printResponse(response);
     return super.onResponse(response, handler);
   }
 
-  void _printResponse(Response response) {
+  void _printResponse(Response<dynamic> response) {
     _printKV('uri', response.requestOptions.uri);
     if (responseHeader) {
       _printKV('statusCode', response.statusCode ?? 0);
@@ -86,7 +89,8 @@ class LoggerInterceptor extends Interceptor {
         _printKV('redirect', response.realUri);
       }
       logPrint('headers:');
-      response.headers.forEach((key, v) => _printKV(' $key', v.join(',')));
+      response.headers.forEach(
+          (String key, List<String> v) => _printKV(' $key', v.join(',')));
     }
     if (responseBody) {
       logPrint('Response Text:');
@@ -103,7 +107,7 @@ class LoggerInterceptor extends Interceptor {
     logger.severe('$key: $v');
   }
 
-  void _printAll(msg) {
+  void _printAll(String msg) {
     msg.toString().split('\n').forEach(logPrint);
   }
 

@@ -39,18 +39,18 @@ class DioNetwork {
   /// App Api Queued Interceptor
   static QueuedInterceptorsWrapper appQueuedInterceptorsWrapper() {
     return QueuedInterceptorsWrapper(
-      onRequest: (RequestOptions options, r) async {
+      onRequest: (RequestOptions options, RequestInterceptorHandler r) async {
         Map<String, dynamic> headers = Helper.getHeaders();
 
         if (kDebugMode) {
           Logger.print(message: 'Headers');
-          Logger.print(message:json.encode(headers));
+          Logger.print(message: json.encode(headers));
         }
         options.headers = headers;
         appAPI.options.headers = headers;
         return r.next(options);
       },
-      onError: (error, handler) async {
+      onError: (DioException error, ErrorInterceptorHandler handler) async {
         try {
           return handler.next(error);
         } catch (e) {
@@ -67,7 +67,7 @@ class DioNetwork {
   /// App interceptor
   static InterceptorsWrapper interceptorsWrapper() {
     return InterceptorsWrapper(
-      onRequest: (RequestOptions options, r) async {
+      onRequest: (RequestOptions options, RequestInterceptorHandler r) async {
         Map<String, dynamic> headers = Helper.getHeaders();
 
         options.headers = headers;
@@ -75,14 +75,15 @@ class DioNetwork {
 
         return r.next(options);
       },
-      onResponse: (response, handler) async {
+      onResponse: (Response<dynamic> response,
+          ResponseInterceptorHandler handler) async {
         if ("${(response.data["code"] ?? "0")}" != '0') {
           return handler.resolve(response);
         } else {
           return handler.next(response);
         }
       },
-      onError: (error, handler) {
+      onError: (DioException error, ErrorInterceptorHandler handler) {
         try {
           return handler.next(error);
         } catch (e) {
@@ -97,10 +98,11 @@ class DioNetwork {
 
     return BaseOptions(
         baseUrl: url,
-        validateStatus: (s) {
+        validateStatus: (int? s) {
           return s! < 300;
         },
-        headers: headers..removeWhere((key, value) => value == null),
+        headers: headers
+          ..removeWhere((String key, dynamic value) => value == null),
         responseType: ResponseType.json);
   }
 }

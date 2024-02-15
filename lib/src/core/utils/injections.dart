@@ -9,12 +9,12 @@ final GetIt sl = GetIt.instance;
 
 Future<void> initInjections() async {
   await initDioInjections();
-  await initAppInjections();
-  await initArticleInjections();
+  initAppInjections();
+  initArticleInjections();
   await initSharedPrefsInjections();
 }
 
-initSharedPrefsInjections() async {
+Future<void> initSharedPrefsInjections() async {
   sl.registerSingletonAsync<SharedPreferences>(() async {
     return await SharedPreferences.getInstance();
   });
