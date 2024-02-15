@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/errors/failures.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/models/article_model.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/models/articles_params.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/artciles_params.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/usecases/all_articles_usecase.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_state.dart';
 
 class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
   final AllArticlesUseCase allArticlesUseCase;
-  List<ArticleModel> allArticlesList = [];
+  List<Article> allArticlesList = [];
   ArticlesBloc({required this.allArticlesUseCase})
       : super(LoadingGetArticlesState()) {
     on<OnGettingArticlesEvent>(_onGettingArticlesEvent);
@@ -39,8 +39,8 @@ class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
   _onSearchingEvent(
       OnSearchingArticlesEvents event, Emitter<ArticlesState> emittor) async {}
 
-  List<ArticleModel> _runFilter(String text) {
-    List<ArticleModel> results = [];
+  List<Article> _runFilter(String text) {
+    List<Article> results = [];
     if (text.isEmpty) {
       results = List.from(allArticlesList);
     } else {

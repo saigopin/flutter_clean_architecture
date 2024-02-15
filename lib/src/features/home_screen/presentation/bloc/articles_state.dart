@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/models/article_model.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
 
 abstract class ArticlesState {
   const ArticlesState();
@@ -14,11 +14,11 @@ class ErrorGetArticlesState extends ArticlesState {
 }
 
 class SuccessGetArticlesState extends ArticlesState {
-  final List<ArticleModel> articles;
+  final List<Article> articles;
   SuccessGetArticlesState(this.articles);
 }
 
 class SearchingGetArticlesState extends ArticlesState {
-  final List<ArticleModel> articles;
+  final List<Article> articles;
   SearchingGetArticlesState(this.articles);
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/models/article_model.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/usecases/all_articles_usecase.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_bloc.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_event.dart';
@@ -18,7 +18,7 @@ class _AritclesPageState extends State<AritclesPage> {
   final ArticlesBloc _articlesBloc =
       ArticlesBloc(allArticlesUseCase: sl<AllArticlesUseCase>());
 
-  List<ArticleModel> articleModelList = [];
+  List<Article> articleModelList = [];
 
   @override
   void initState() {
