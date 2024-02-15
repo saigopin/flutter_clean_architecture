@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "FelixAngelov.bloc",
+    "hzgood.dart-data-class-generator",
+    "robert-brunhage.flutter-riverpod-snippets"
+  ]
+}
