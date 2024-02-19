@@ -22,7 +22,7 @@ class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
       emittor(LoadingGetArticlesState());
     }
 
-    final Either<Failure, List<ArticleModel>> result =
+    final Either<Failure, List<Article>> result =
         await allArticlesUseCase.call(ArticlesParams(period: event.period));
 
     result.fold((Failure l) {
@@ -31,7 +31,7 @@ class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
       } else {
         emittor(ErrorGetArticlesState(l.errorMessage));
       }
-    }, (List<ArticleModel> r) {
+    }, (List<Article> r) {
       allArticlesList = r;
       emittor(SuccessGetArticlesState(_runFilter(event.text)));
     });
@@ -45,7 +45,7 @@ class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
     if (text.isEmpty) {
       results = allArticlesList;
     } else {
-      results = allArticlesList.where((ArticleModel element) {
+      results = allArticlesList.where((Article element) {
         return (element.title).toLowerCase().contains(text.toString());
       }).toList();
     }
