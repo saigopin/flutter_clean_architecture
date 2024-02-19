@@ -1,9 +1,15 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture/src/core/errors/failures.dart';
+import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
 
-abstract class UseCase<T, Params> {
-  Future<Either<Failure, T>> call(Params params);
+/// For Use case that takes Params
+abstract class UseCaseWithParams<T, Params> {
+  const UseCaseWithParams();
+
+  ResultFuture<T> call(Params params);
 }
-class NoParams{
-  
+
+/// For Use case that does not have params
+abstract class UseCaseWithoutParams<T>{
+  const UseCaseWithoutParams();
+
+  ResultFuture<T> call();
 }

@@ -5,7 +5,7 @@ import 'package:flutter_clean_architecture/src/features/home_screen/domain/entit
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/repositories/abstract_articles_repository.dart';
 
-class AllArticlesUseCase extends UseCase<List<Article>, ArticlesParams> {
+class AllArticlesUseCase extends UseCaseWithParams<List<Article>, ArticlesParams> {
   final AbstractArticleRepository repository;
   AllArticlesUseCase(this.repository);
   @override
