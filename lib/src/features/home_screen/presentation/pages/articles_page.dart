@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clean_architecture/src/core/exports.dart';
 import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/models/article_model.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/usecases/all_articles_usecase.dart';
@@ -14,7 +15,7 @@ class AritclesPage extends StatefulWidget {
   State<AritclesPage> createState() => _AritclesPageState();
 }
 
-class _AritclesPageState extends State<AritclesPage> {
+class _AritclesPageState extends State<AritclesPage> with TextStyles {
   final ArticlesBloc _articlesBloc =
       ArticlesBloc(allArticlesUseCase: sl<AllArticlesUseCase>());
 
@@ -48,7 +49,10 @@ class _AritclesPageState extends State<AritclesPage> {
           if (articleModelList.isEmpty) {
             return const Text('No Articles');
           } else {
-            return Text('Articles ${articleModelList.length}');
+            return Text(
+              'Articles ${articleModelList.length}',
+              style: smallTextStyle(),
+            );
           }
         },
       ),
