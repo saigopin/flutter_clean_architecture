@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_clean_architecture/src/core/helper/helper.dart';
 import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
 import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/pages/articles_page.dart';
+import 'package:flutter_clean_architecture/src/features/auth/presentation/login/login_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             theme: buildThemeData(
                 context: context, isDarkTheme: Helper.isDarkTheme()),
             debugShowCheckedModeBanner: false,
-            home: const AritclesPage(),
+            home: const LoginScreen(),
           ),
         );
       }),
