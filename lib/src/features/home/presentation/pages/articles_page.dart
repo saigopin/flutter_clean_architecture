@@ -9,6 +9,7 @@ import 'package:flutter_clean_architecture/src/features/home/domain/usecases/all
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_bloc.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_state.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
 
 class AritclesPage extends StatefulWidget {
   const AritclesPage({super.key});
