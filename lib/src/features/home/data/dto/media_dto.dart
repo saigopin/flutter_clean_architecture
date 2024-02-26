@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/data/dto/media_meta_data_dto.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/media.dart';
+import 'package:flutter_clean_architecture/src/features/home/data/dto/media_meta_data_dto.dart';
+import 'package:flutter_clean_architecture/src/features/home/domain/entities/media.dart';
 
 class MediaDto extends Media {
   const MediaDto({
