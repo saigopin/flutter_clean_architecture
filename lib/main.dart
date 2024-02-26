@@ -57,7 +57,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ThemeSwitchBloc>(create: (_) => ThemeSwitchBloc())
+        BlocProvider<ThemeSwitchBloc>(
+          create: (_) => sl<ThemeSwitchBloc>(),
+        ),
       ],
       child: BlocBuilder<ThemeSwitchBloc, ThemeSwitchState>(
         builder: (BuildContext context, ThemeSwitchState state) {
