@@ -58,14 +58,15 @@ class MediaDto extends Media {
 
   factory MediaDto.fromMap(DataMap json) {
     return MediaDto(
-      type: json['type'],
-      subtype: json['subtype'],
-      caption: json['caption'],
-      copyright: json['copyright'],
-      approvedForSyndication: json['approvedForSyndication'],
-      mediaMetadata: (json['mediaMetadata'] as List<dynamic>)
-          .map((data) => MediaMetaDataDto.fromJson(data))
-          .toList(),
+      type: json['type'] ?? '',
+      subtype: json['subtype'] ?? '',
+      caption: json['caption'] ?? '',
+      copyright: json['copyright'] ?? '',
+      approvedForSyndication: json['approved_for_syndication'] ?? 0,
+      mediaMetadata: json['media-metadata'] != null
+          ? List<MediaMetaDataDto>.from((json['media-metadata'])
+              .map((item) => MediaMetaDataDto.fromMap(item)))
+          : const <MediaMetaDataDto>[],
     );
   }
 

@@ -12,7 +12,7 @@ class ArticlesRepoImpl extends AbstractArticleRepository {
   final ArticlesImplApi articlesImplApi;
   ArticlesRepoImpl(this.articlesImplApi);
   @override
- ResultFuture<List<ArticleDto>> getArticles(
+  ResultFuture<List<ArticleDto>> getArticles(
       ArticlesParams articlesParams) async {
     try {
       final ApiResponse<List<ArticleDto>> results =

@@ -49,11 +49,11 @@ class ArticleDto extends Article {
           type: '',
           title: '',
           abstract: '',
-          desFacet: const [],
-          orgFacet: const [],
-          perFacet: const [],
-          geoFacet: const [],
-          media: const [],
+          desFacet: const <String>[],
+          orgFacet: const <String>[],
+          perFacet: const <String>[],
+          geoFacet: const <String>[],
+          media: const <Media>[],
           etaId: 0,
         );
 
@@ -129,39 +129,39 @@ class ArticleDto extends Article {
       'orgFacet': orgFacet,
       'perFacet': perFacet,
       'geoFacet': geoFacet,
-      'media': (media as List<MediaDto>).map((x) => x.toMap()).toList(),
+      'media':
+          (media as List<MediaDto>).map((MediaDto x) => x.toMap()).toList(),
       'etaId': etaId,
     };
   }
 
   factory ArticleDto.fromMap(DataMap map) {
     return ArticleDto(
-      uri: map['uri'] as String,
-      url: map['url'] as String,
-      id: map['id'] as int,
-      assetId: map['assetId'] as int,
-      source: map['source'] as String,
-      publishedDate: map['publishedDate'] as String,
-      updated: map['updated'] as String,
-      section: map['section'] as String,
-      subsection: map['subsection'] as String,
-      nyTdSection: map['nyTdSection'] as String,
-      adxKeywords: map['adxKeywords'] as String,
-      column: map['column'] as String,
-      byline: map['byline'] as String,
-      type: map['type'] as String,
-      title: map['title'] as String,
-      abstract: map['abstract'] as String,
-      desFacet: List<String>.from(map['desFacet'] as List<String>),
-      orgFacet: List<String>.from(map['orgFacet'] as List<String>),
-      perFacet: List<String>.from(map['perFacet'] as List<String>),
-      geoFacet: List<String>.from(map['geoFacet'] as List<String>),
-      media: List<MediaDto>.from(
-        (map['media'] as List<int>).map<MediaDto>(
-          (x) => MediaDto.fromMap(x as Map<String, dynamic>),
-        ),
-      ),
-      etaId: map['etaId'] as int,
+      uri: map['uri'] ?? '',
+      url: map['url'] ?? '',
+      id: map['id'] ?? 0,
+      assetId: map['asset_id'] ?? 0,
+      source: map['source'] ?? '',
+      publishedDate: map['published_date'] ?? '',
+      updated: map['updated'] ?? '',
+      section: map['section'] ?? '',
+      subsection: map['subsection'] ?? '',
+      nyTdSection: map['nytdsection'] ?? '',
+      adxKeywords: map['adx_keywords'] ?? '',
+      column: map['column'] ?? '',
+      byline: map['byline'] ?? '',
+      type: map['type'] ?? '',
+      title: map['title'] ?? '',
+      abstract: map['abstract'] ?? '',
+      desFacet: List<String>.from(map['des_facet'] ?? const <String>[]),
+      orgFacet: List<String>.from(map['org_facet'] ?? const <String>[]),
+      perFacet: List<String>.from(map['per_facet'] ?? const <String>[]),
+      geoFacet: List<String>.from(map['geo_facet'] ?? const <String>[]),
+      media: map['media'] != null
+          ? List<MediaDto>.from(
+              (map['media']).map((item) => MediaDto.fromMap(item)))
+          : const <MediaDto>[],
+      etaId: map['eta_id'] ?? 0,
     );
   }
 
