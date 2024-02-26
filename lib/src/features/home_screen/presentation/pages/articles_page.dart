@@ -9,7 +9,7 @@ import 'package:flutter_clean_architecture/src/features/home_screen/domain/useca
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_bloc.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_state.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
 
 class AritclesPage extends StatefulWidget {
   const AritclesPage({super.key});
@@ -45,7 +45,7 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
         },
         builder: (BuildContext context, ArticlesState state) {
           if (state is LoadingGetArticlesState) {
-            return _buildShimmerEffect();
+            return const ArticleListShimmerWidget();
           } else if (state is ErrorGetArticlesState) {
             return Text('Retry again ${state.message}');
           }
@@ -110,65 +110,6 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
             );
           }
         },
-      ),
-    );
-  }
-
-  Widget _buildShimmerEffect() {
-    return SingleChildScrollView(
-      child: Column(
-        children: List<Widget>.generate(
-          9,
-          (int index) => ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height * 0.15,
-              maxWidth: MediaQuery.of(context).size.width,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
-              child: Row(
-                children: <Widget>[
-                  Shimmer.fromColors(
-                    baseColor: Colors.grey[300]!,
-                    highlightColor: Colors.grey[100]!,
-                    child: Container(
-                      width: 130,
-                      height: 150,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(width: 8.0),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[100]!,
-                          child: Container(
-                            height: 16,
-                            width: double.infinity,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 4.0),
-                        Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[100]!,
-                          child: Container(
-                            height: 16,
-                            width: double.infinity,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
