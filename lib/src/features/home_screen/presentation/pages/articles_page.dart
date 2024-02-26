@@ -6,9 +6,10 @@ import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.
 import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/usecases/all_articles_usecase.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_bloc.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_event.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_state.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/article_bloc/articles_bloc.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/article_bloc/articles_event.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/article_bloc/articles_state.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/theme_switch/theme_switch_bloc.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
 
 class AritclesPage extends StatefulWidget {
@@ -35,6 +36,23 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Articles'),
+        actions: <Widget>[
+          BlocBuilder<ThemeSwitchBloc, ThemeSwitchState>(
+              builder: (BuildContext context, ThemeSwitchState state) {
+            return IconButton(
+              onPressed: () {
+                if (state.switchValue) {
+                  context.read<ThemeSwitchBloc>().add(SwitchOffEvent());
+                } else {
+                  context.read<ThemeSwitchBloc>().add(SwitchOnEvent());
+                }
+              },
+              icon: Icon(
+                state.switchValue ? Icons.sunny : Icons.dark_mode_outlined,
+              ),
+            );
+          }),
+        ],
       ),
       body: BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
