@@ -1,6 +1,6 @@
 import 'package:flutter_clean_architecture/src/core/models/api_response.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/data/dto/article_dto.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/artciles_params.dart';
+import 'package:flutter_clean_architecture/src/features/home/data/dto/article_dto.dart';
+import 'package:flutter_clean_architecture/src/features/home/domain/entities/artciles_params.dart';
 
 abstract class AbstractArticleApi {
   // Get all articles
