@@ -40,7 +40,9 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
           ThemeSwitchWidget(),
         ],
       ),
-      body: BlocConsumer<ArticlesBloc, ArticlesState>(
+      body:
+
+      BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
         listener: (BuildContext context, ArticlesState state) {
           if (state is SuccessGetArticlesState) {
@@ -78,6 +80,9 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
                       image: imageUrl,
                       isNetworkImage: true,
                       title: articleData.title,
+                      subtitle: "test title",
+                      trailingText: "5000",
+
                     );
 
                     // ConstrainedBox(
