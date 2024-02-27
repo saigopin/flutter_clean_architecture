@@ -21,8 +21,10 @@ class ArticlesImplApi extends AbstractArticleApi {
         throw ServerException('Unknown Error', results.statusCode);
       }
 
-      return ApiResponse.fromJson<List<ArticleDto>>(
-          results.data, ArticleDto.fromMap);
+      return ApiResponse.fromJson<List<ArticleDto>, ArticleDto>(
+        results.data,
+        ArticleDto.fromMap,
+      );
     } on ServerException {
       rethrow;
     } catch (e) {
