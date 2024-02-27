@@ -10,7 +10,7 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": "off"
   },
-  "editor.fontSize": 15,
+  "editor.fontSize": 12,
   "files.associations": {
     "*.json": "jsonc"
   }

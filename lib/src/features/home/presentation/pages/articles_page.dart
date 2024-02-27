@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/exports.dart';
@@ -36,10 +35,25 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Articles'),
+        actions: <Widget>[
+          BlocBuilder<ThemeSwitchBloc, ThemeSwitchState>(
+              builder: (BuildContext context, ThemeSwitchState state) {
+            return IconButton(
+              onPressed: () {
+                if (state.switchValue) {
+                  context.read<ThemeSwitchBloc>().add(SwitchOffEvent());
+                } else {
+                  context.read<ThemeSwitchBloc>().add(SwitchOnEvent());
+                }
+              },
+              icon: Icon(
+                state.switchValue ? Icons.sunny : Icons.dark_mode_outlined,
+              ),
+            );
+          }),
+        ],
       ),
-      body:
-
-      BlocConsumer<ArticlesBloc, ArticlesState>(
+      body: BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
         listener: (BuildContext context, ArticlesState state) {
           if (state is SuccessGetArticlesState) {
@@ -77,45 +91,9 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
                       image: imageUrl,
                       isNetworkImage: true,
                       title: articleData.title,
-                      subtitle: "test title",
-                      trailingText: "5000",
-
+                      subtitle: 'test title',
+                      trailingText: '5000',
                     );
-
-                    // ConstrainedBox(
-                    //   constraints: BoxConstraints(
-                    //     maxHeight: MediaQuery.of(context).size.height * 0.15,
-                    //     maxWidth: MediaQuery.of(context).size.width,
-                    //   ),
-                    //   child: Row(
-                    //     children: <Widget>[
-                    //       CachedNetworkImage(
-                    //         imageUrl: imageUrl,
-                    //         width: 130,
-                    //         height: 150,
-                    //         fit: BoxFit.fitWidth,
-                    //       ),
-                    //       const SizedBox(width: 10),
-                    //       Expanded(
-                    //         child: Column(
-                    //           crossAxisAlignment: CrossAxisAlignment.start,
-                    //           children: <Widget>[
-                    //             Text(
-                    //               articleData.title,
-                    //               overflow: TextOverflow.ellipsis,
-                    //             ),
-                    //             Text(
-                    //               articleData.abstract,
-                    //               style: const TextStyle(color: Colors.grey),
-                    //               maxLines: 2,
-                    //               overflow: TextOverflow.ellipsis,
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
                       const SizedBox(height: 10),
