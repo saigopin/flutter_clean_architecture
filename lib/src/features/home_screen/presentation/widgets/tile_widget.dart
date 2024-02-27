@@ -164,39 +164,6 @@ class TileWidget extends StatelessWidget {
         ],
       );
 
-  /// Widget to build the leading icon
-  Widget _buildLeadingImage(BuildContext context) {
-    ImageProvider? leadingImage;
-    Widget imageWidget = CircleAvatar(
-      radius: MediaQuery.of(context).size.width * 0.07,
-      child: Icon(
-        icon,
-        size: MediaQuery.of(context).size.width * 0.06,
-      ),
-    );
-    if (isLocalImage && image.isNotEmpty) {
-      leadingImage = AssetImage(image);
-    }
-    if (isNetworkImage && image.isNotEmpty) {
-      leadingImage = NetworkImage(image);
-    }
-    if (!isIcon) {
-      imageWidget = CircleAvatar(
-        radius: MediaQuery.of(context).size.width * 0.07,
-        backgroundImage: leadingImage,
-      );
-    }
-    return Padding(
-      padding: EdgeInsets.only(
-        top: 10,
-        bottom: 10,
-        left: 10,
-        right: MediaQuery.of(context).size.width * 0.04,
-      ),
-      child: imageWidget,
-    );
-  }
-
   /// Method to create a decoration for the tile
   BoxDecoration _tileDecoration() {
     return BoxDecoration(
