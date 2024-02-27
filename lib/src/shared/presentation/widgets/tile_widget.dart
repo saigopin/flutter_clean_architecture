@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/src/shared/presentation/widgets/circle_image_widget.dart';
 
 // TODO: need to make the widget responsive
 
@@ -71,7 +72,15 @@ class TileWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildLeadingImage(context),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 10,
+              right: MediaQuery.of(context).size.width * 0.04,
+            ),
+            child: CircleImageWidget(leadingImage: image),
+          ),
           Expanded(child: _buildTitleUI(context)),
           _buildTrailingUI(context),
         ],
