@@ -13,8 +13,9 @@ class ApiResponse<T> extends Equatable {
     required this.results,
   });
 
-  static ApiResponse<T> fromJson<T,P>(
-    Map<dynamic, dynamic> json, Function tFromJson, {
+  static ApiResponse<T> fromJson<T, P>(
+    Map<dynamic, dynamic> json,
+    Function tFromJson, {
     bool isList = true,
   }) {
     return ApiResponse<T>(

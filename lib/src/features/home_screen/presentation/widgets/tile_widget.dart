@@ -167,7 +167,6 @@ class TileWidget extends StatelessWidget {
   /// Method to create a decoration for the tile
   BoxDecoration _tileDecoration() {
     return BoxDecoration(
-      color: Colors.white,
       border: Border(
         bottom: BorderSide(
           width: 1.0,

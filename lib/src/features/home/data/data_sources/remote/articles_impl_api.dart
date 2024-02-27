@@ -27,7 +27,8 @@ class ArticlesImplApi extends AbstractArticleApi {
       );
     } on ServerException {
       rethrow;
-    } catch (e) {
+    } catch (e, stack) {
+      print("stack : $stack");
       throw ServerException(e.toString(), null);
     }
   }
