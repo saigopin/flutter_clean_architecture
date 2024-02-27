@@ -68,6 +68,8 @@ dependencies:
   # provider state management
   provider: ^6.1.1
   shimmer: ^3.0.0
+  hydrated_bloc: ^9.1.4
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
