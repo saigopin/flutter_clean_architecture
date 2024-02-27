@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
+import 'package:flutter_clean_architecture/src/features/home/domain/entities/article.dart';
 
 abstract class ArticlesState {
   const ArticlesState();
