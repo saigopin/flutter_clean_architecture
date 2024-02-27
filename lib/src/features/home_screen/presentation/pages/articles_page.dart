@@ -10,6 +10,7 @@ import 'package:flutter_clean_architecture/src/features/home_screen/presentation
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/bloc/articles_state.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
+import 'package:flutter_clean_architecture/src/shared/presentation/widgets/tile_widget.dart';
 
 class AritclesPage extends StatefulWidget {
   const AritclesPage({super.key});
@@ -36,7 +37,22 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
       appBar: AppBar(
         title: const Text('Articles'),
       ),
-      body: BlocConsumer<ArticlesBloc, ArticlesState>(
+      body:
+
+
+
+      // TileWidget(
+      //   isLocalImage: false,
+      //   isIcon: false,
+      //   isNetworkImage: true,
+      //   image: "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg",
+      //   title: "Just a new title that is very long enough to go out of screen",
+      //   subtitle: "Just text when lomg ",
+      //   trailingText: "50000",
+      //   trailingSubtitle: DateTime.now().hour.toString(),
+      // ),
+
+      BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
         listener: (BuildContext context, ArticlesState state) {
           if (state is SuccessGetArticlesState) {

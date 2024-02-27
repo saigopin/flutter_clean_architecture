@@ -71,61 +71,63 @@ class TileWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Expanded(flex: 2, child: _buildLeadingImage(context)),
-          const Spacer(),
-          Expanded(flex: 6,child: _buildTitleUI(context)),
-          const Spacer(),
-          Expanded(flex: 2,child: _buildTrailingUI(context)),
+          _buildLeadingImage(context),
+          Expanded(child: _buildTitleUI(context)),
+          _buildTrailingUI(context),
         ],
       );
 
   /// Method to build the title of the tile
   Widget _buildTitleUI(BuildContext context) => Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      // TODO: need to use the Common title widget
-      Text(
-        title,
-        overflow: TextOverflow.ellipsis,
-        maxLines: 1,
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      ),
-      _buildSubtitleUI(context),
-    ],
-  );
-
-  /// Method to build the trailing part of tile
-  Widget _buildTrailingUI(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // TODO: need to use the Common title widget
-          if (trailingText.isNotEmpty || trailingText != '')
-            Text(
-              trailingText,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
+          Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          // TODO: need to use the Common title widget
-          if (trailingSubtitle.isNotEmpty || trailingSubtitle != '')
-            Text(
-              trailingSubtitle,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 10.0,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+          _buildSubtitleUI(context),
         ],
+      );
+
+  /// Method to build the trailing part of tile
+  Widget _buildTrailingUI(BuildContext context) => Padding(
+        padding:
+            EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // TODO: need to use the Common title widget
+            if (trailingText.isNotEmpty || trailingText != '')
+              Text(
+                trailingText,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            // TODO: need to use the Common title widget
+            if (trailingSubtitle.isNotEmpty || trailingSubtitle != '')
+              Text(
+                trailingSubtitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 10.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+          ],
+        ),
       );
 
   /// Method to build subtitle of tile
@@ -176,7 +178,12 @@ class TileWidget extends StatelessWidget {
       );
     }
     return Padding(
-      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10),
+      padding: EdgeInsets.only(
+        top: 10,
+        bottom: 10,
+        left: 10,
+        right: MediaQuery.of(context).size.width * 0.04,
+      ),
       child: imageWidget,
     );
   }
