@@ -37,22 +37,7 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
       appBar: AppBar(
         title: const Text('Articles'),
       ),
-      body:
-
-
-
-      // TileWidget(
-      //   isLocalImage: false,
-      //   isIcon: false,
-      //   isNetworkImage: true,
-      //   image: "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg",
-      //   title: "Just a new title that is very long enough to go out of screen",
-      //   subtitle: "Just text when lomg ",
-      //   trailingText: "50000",
-      //   trailingSubtitle: DateTime.now().hour.toString(),
-      // ),
-
-      BlocConsumer<ArticlesBloc, ArticlesState>(
+      body: BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
         listener: (BuildContext context, ArticlesState state) {
           if (state is SuccessGetArticlesState) {
@@ -84,40 +69,48 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
                         ? articleData.media.first.mediaMetadata.first.url
                         : AppStrings.noImageURL;
 
-                    return ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxHeight: MediaQuery.of(context).size.height * 0.15,
-                        maxWidth: MediaQuery.of(context).size.width,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          CachedNetworkImage(
-                            imageUrl: imageUrl,
-                            width: 130,
-                            height: 150,
-                            fit: BoxFit.fitWidth,
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  articleData.title,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  articleData.abstract,
-                                  style: const TextStyle(color: Colors.grey),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    return TileWidget(
+                      isLocalImage: false,
+                      isIcon: false,
+                      image: imageUrl,
+                      isNetworkImage: true,
+                      title: articleData.title,
                     );
+
+                    // ConstrainedBox(
+                    //   constraints: BoxConstraints(
+                    //     maxHeight: MediaQuery.of(context).size.height * 0.15,
+                    //     maxWidth: MediaQuery.of(context).size.width,
+                    //   ),
+                    //   child: Row(
+                    //     children: <Widget>[
+                    //       CachedNetworkImage(
+                    //         imageUrl: imageUrl,
+                    //         width: 130,
+                    //         height: 150,
+                    //         fit: BoxFit.fitWidth,
+                    //       ),
+                    //       const SizedBox(width: 10),
+                    //       Expanded(
+                    //         child: Column(
+                    //           crossAxisAlignment: CrossAxisAlignment.start,
+                    //           children: <Widget>[
+                    //             Text(
+                    //               articleData.title,
+                    //               overflow: TextOverflow.ellipsis,
+                    //             ),
+                    //             Text(
+                    //               articleData.abstract,
+                    //               style: const TextStyle(color: Colors.grey),
+                    //               maxLines: 2,
+                    //               overflow: TextOverflow.ellipsis,
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
                       const SizedBox(height: 10),
