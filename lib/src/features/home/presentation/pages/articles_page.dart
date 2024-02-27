@@ -10,6 +10,7 @@ import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/a
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_state.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/tile_widget.dart';
 
 class AritclesPage extends StatefulWidget {
   const AritclesPage({super.key});
@@ -36,7 +37,9 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
       appBar: AppBar(
         title: const Text('Articles'),
       ),
-      body: BlocConsumer<ArticlesBloc, ArticlesState>(
+      body:
+
+      BlocConsumer<ArticlesBloc, ArticlesState>(
         bloc: _articlesBloc,
         listener: (BuildContext context, ArticlesState state) {
           if (state is SuccessGetArticlesState) {
@@ -68,40 +71,51 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
                         ? articleData.media.first.mediaMetadata.first.url
                         : AppStrings.noImageURL;
 
-                    return ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxHeight: MediaQuery.of(context).size.height * 0.15,
-                        maxWidth: MediaQuery.of(context).size.width,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          CachedNetworkImage(
-                            imageUrl: imageUrl,
-                            width: 130,
-                            height: 150,
-                            fit: BoxFit.fitWidth,
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  articleData.title,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  articleData.abstract,
-                                  style: const TextStyle(color: Colors.grey),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    return TileWidget(
+                      isLocalImage: false,
+                      isIcon: false,
+                      image: imageUrl,
+                      isNetworkImage: true,
+                      title: articleData.title,
+                      subtitle: "test title",
+                      trailingText: "5000",
+
                     );
+
+                    // ConstrainedBox(
+                    //   constraints: BoxConstraints(
+                    //     maxHeight: MediaQuery.of(context).size.height * 0.15,
+                    //     maxWidth: MediaQuery.of(context).size.width,
+                    //   ),
+                    //   child: Row(
+                    //     children: <Widget>[
+                    //       CachedNetworkImage(
+                    //         imageUrl: imageUrl,
+                    //         width: 130,
+                    //         height: 150,
+                    //         fit: BoxFit.fitWidth,
+                    //       ),
+                    //       const SizedBox(width: 10),
+                    //       Expanded(
+                    //         child: Column(
+                    //           crossAxisAlignment: CrossAxisAlignment.start,
+                    //           children: <Widget>[
+                    //             Text(
+                    //               articleData.title,
+                    //               overflow: TextOverflow.ellipsis,
+                    //             ),
+                    //             Text(
+                    //               articleData.abstract,
+                    //               style: const TextStyle(color: Colors.grey),
+                    //               maxLines: 2,
+                    //               overflow: TextOverflow.ellipsis,
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
                       const SizedBox(height: 10),
