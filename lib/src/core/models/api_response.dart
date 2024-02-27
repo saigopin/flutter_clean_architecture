@@ -1,6 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/data/dto/article_dto.dart';
 
 class ApiResponse<T> extends Equatable {
   final String status;
