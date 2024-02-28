@@ -18,5 +18,5 @@ class MediaMetaData extends Equatable {
   const MediaMetaData.empty() : this(url: '', format: '', height: 0, width: 0);
 
   @override
-  List<Object?> get props => [url, format, width, height];
+  List<Object?> get props => <Object?>[url, format, width, height];
 }
