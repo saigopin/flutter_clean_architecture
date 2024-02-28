@@ -8,6 +8,9 @@ import 'package:flutter_clean_architecture/src/features/home/domain/usecases/all
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_bloc.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_state.dart';
+import 'package:flutter_clean_architecture/src/features/home/presentation/pages/widgets/articles_list_shimmer_widget.dart';
+import 'package:flutter_clean_architecture/src/shared/presentation/widgets/bottom_sheet_widget.dart';
+import 'package:flutter_clean_architecture/src/shared/presentation/widgets/tile_widget.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/theme_switch_widget.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/tile_widget.dart';
@@ -24,6 +27,17 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
       ArticlesBloc(allArticlesUseCase: sl<AllArticlesUseCase>());
 
   List<Article> articleModelList = <Article>[];
+
+  void _tileOnTapHandler() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) =>  BottomSheetWidget(
+        heading: "Your Card is now Activated",
+        description: "You can start using your physical\ncard now",
+        buttonOnPressedHandler: (){},
+      ),
+    );
+  }
 
   @override
   void initState() {
@@ -71,6 +85,7 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
                         : AppStrings.noImageURL;
 
                     return TileWidget(
+                      onTapHandler: _tileOnTapHandler,
                       isLocalImage: false,
                       isIcon: false,
                       image: imageUrl,
