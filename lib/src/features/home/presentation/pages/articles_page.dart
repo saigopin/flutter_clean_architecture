@@ -9,9 +9,7 @@ import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/a
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_event.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_state.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/pages/widgets/articles_list_shimmer_widget.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/widgets/bottom_sheet_widget.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/widgets/tile_widget.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/theme_switch_widget.dart';
+import 'package:flutter_clean_architecture/src/shared/shared.dart';
 
 class AritclesPage extends StatefulWidget {
   const AritclesPage({super.key});
