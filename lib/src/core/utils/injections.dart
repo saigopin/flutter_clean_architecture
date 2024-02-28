@@ -1,4 +1,5 @@
 import 'package:flutter_clean_architecture/src/core/network/dio/dio_network.dart';
+import 'package:flutter_clean_architecture/src/core/network/dio/dio_operations.dart';
 import 'package:flutter_clean_architecture/src/features/home/articles_injections.dart';
 import 'package:flutter_clean_architecture/src/shared/app_injections.dart';
 import 'package:get_it/get_it.dart';
@@ -24,4 +25,5 @@ Future<void> initSharedPrefsInjections() async {
 Future<void> initDioInjections() async {
   initRootLogger();
   DioNetwork.initDio();
+  getIt.registerSingleton<DioOperations>(DioOperations(DioNetwork.appAPI));
 }
