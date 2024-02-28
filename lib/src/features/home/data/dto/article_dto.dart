@@ -160,7 +160,7 @@ class ArticleDto extends Article {
       geoFacet: List<String>.from(map['geo_facet'] ?? const <String>[]),
       media: map['media'] != null
           ? List<MediaDto>.from(
-              (map['media']).map((item) => MediaDto.fromMap(item)))
+              (map['media']).map((dynamic item) => MediaDto.fromMap(item)))
           : const <MediaDto>[],
       etaId: map['eta_id'] ?? 0,
     );

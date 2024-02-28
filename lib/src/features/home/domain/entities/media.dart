@@ -28,11 +28,11 @@ class Media extends Equatable {
           caption: '',
           copyright: '',
           approvedForSyndication: 0,
-          mediaMetadata: const [],
+          mediaMetadata: const <MediaMetaData>[],
         );
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props => <Object?>[
         type,
         subtype,
         caption,

@@ -7,7 +7,7 @@ import 'package:flutter_clean_architecture/src/features/home/domain/usecases/all
 import 'domain/repositories/abstract_articles_repository.dart';
 
 void initArticleInjections() {
-  sl.registerSingleton<ArticlesImplApi>(ArticlesImplApi(DioNetwork.appAPI));
-  sl.registerSingleton<AbstractArticleRepository>(ArticlesRepoImpl(sl()));
-  sl.registerSingleton<AllArticlesUseCase>(AllArticlesUseCase(sl()));
+  getIt.registerSingleton<ArticlesImplApi>(ArticlesImplApi(DioNetwork.appAPI));
+  getIt.registerSingleton<AbstractArticleRepository>(ArticlesRepoImpl(getIt()));
+  getIt.registerSingleton<AllArticlesUseCase>(AllArticlesUseCase(getIt()));
 }

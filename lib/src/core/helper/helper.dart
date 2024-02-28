@@ -8,6 +8,6 @@ class Helper {
   }
 
   static bool isDarkTheme() {
-    return sl<AppSharedPrefs>().getIsDarkTheme();
+    return getIt<AppSharedPrefs>().getIsDarkTheme();
   }
 }

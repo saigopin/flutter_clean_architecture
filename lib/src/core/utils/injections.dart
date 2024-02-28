@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'loggers/app_logger.dart';
 
-final GetIt sl = GetIt.instance;
+final GetIt getIt = GetIt.instance;
 
 Future<void> initInjections() async {
   await initDioInjections();
@@ -15,10 +15,10 @@ Future<void> initInjections() async {
 }
 
 Future<void> initSharedPrefsInjections() async {
-  sl.registerSingletonAsync<SharedPreferences>(() async {
+  getIt.registerSingletonAsync<SharedPreferences>(() async {
     return await SharedPreferences.getInstance();
   });
-  await sl.isReady<SharedPreferences>();
+  await getIt.isReady<SharedPreferences>();
 }
 
 Future<void> initDioInjections() async {

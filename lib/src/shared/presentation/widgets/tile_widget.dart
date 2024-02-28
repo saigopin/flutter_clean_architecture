@@ -40,7 +40,9 @@ class TileWidget extends StatelessWidget {
 
   const TileWidget({
     super.key,
-    // TODO: add assertion for the code below that user cannot provide bot the values as true
+    // TODO: add assertion for
+    //the code below that
+    //user cannot provide bot the values as true
     required this.isLocalImage,
     required this.isIcon,
     required this.image,
@@ -53,7 +55,7 @@ class TileWidget extends StatelessWidget {
     this.icon = Icons.add,
   });
   // : assert(!(isLocalImage && isNetworkImage),
-  //       'Both isLocalImage and isNetworkImage cannot be true at the same time.');
+  // 'Both isLocalImage and isNetworkImage cannot be true at the same time.');
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +96,7 @@ class TileWidget extends StatelessWidget {
   Widget _buildTitleUI(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           // TODO: need to use the Common title widget
           Text(
             title,
@@ -113,7 +115,7 @@ class TileWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             // TODO: need to use the Common title widget
             if (trailingText.isNotEmpty || trailingText != '')
               Text(
@@ -145,7 +147,7 @@ class TileWidget extends StatelessWidget {
 
   /// Method to build subtitle of tile
   Row _buildSubtitleUI(BuildContext context) => Row(
-        children: [
+        children: <Widget>[
           // TODO: need to use the Common title widget
           if (subtitle.isNotEmpty || subtitle != '')
             Container(

@@ -5,7 +5,7 @@ class ThemeSwitchState extends Equatable {
   const ThemeSwitchState({required this.switchValue});
 
   @override
-  List<Object> get props => [switchValue];
+  List<Object> get props => <Object>[switchValue];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{

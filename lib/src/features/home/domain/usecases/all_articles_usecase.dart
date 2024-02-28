@@ -6,12 +6,12 @@ import 'package:flutter_clean_architecture/src/features/home/domain/entities/art
 import 'package:flutter_clean_architecture/src/features/home/domain/entities/article.dart';
 import 'package:flutter_clean_architecture/src/features/home/domain/repositories/abstract_articles_repository.dart';
 
-class AllArticlesUseCase extends UseCaseWithParams<List<Article>, ArticlesParams> {
+class AllArticlesUseCase
+    extends UseCaseWithParams<List<Article>, ArticlesParams> {
   final AbstractArticleRepository repository;
   AllArticlesUseCase(this.repository);
   @override
-  ResultFuture<List<Article>> call(
-      ArticlesParams params) async {
+  ResultFuture<List<Article>> call(ArticlesParams params) async {
     final Either<Failure, List<Article>> results =
         await repository.getArticles(params);
     return results.fold((Failure l) {

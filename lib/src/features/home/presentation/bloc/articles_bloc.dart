@@ -9,7 +9,7 @@ import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/a
 
 class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
   final AllArticlesUseCase allArticlesUseCase;
-  List<Article> allArticlesList = [];
+  List<Article> allArticlesList = <Article>[];
   ArticlesBloc({required this.allArticlesUseCase})
       : super(LoadingGetArticlesState()) {
     on<OnGettingArticlesEvent>(_onGettingArticlesEvent);
@@ -41,7 +41,7 @@ class ArticlesBloc extends Bloc<ArticlesEvent, ArticlesState> {
       OnSearchingArticlesEvents event, Emitter<ArticlesState> emittor) async {}
 
   List<Article> _runFilter(String text) {
-    List<Article> results = [];
+    List<Article> results = <Article>[];
     if (text.isEmpty) {
       results = allArticlesList;
     } else {
