@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clean_architecture/src/core/routing/routes.dart';
 import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
 import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/pages/articles_page.dart';
@@ -57,15 +58,14 @@ class MyApp extends StatelessWidget {
             designSize: const Size(360, 690),
             minTextAdapt: true,
             splitScreenMode: true,
-            child: MaterialApp(
-              navigatorKey: navigatorKey,
+            child: MaterialApp.router(
+              routerConfig: router,
               title: AppStrings.appName,
               builder: DevicePreview.appBuilder,
               theme: state.switchValue
                   ? AppThemes.appThemeData[AppTheme.darkTheme]
                   : AppThemes.appThemeData[AppTheme.lightTheme],
               debugShowCheckedModeBanner: false,
-              home: const AritclesPage(),
             ),
           );
         },

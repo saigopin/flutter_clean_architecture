@@ -13,14 +13,14 @@ import 'package:flutter_clean_architecture/src/shared/presentation/widgets/botto
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/tile_widget.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/theme_switch_widget.dart';
 
-class AritclesPage extends StatefulWidget {
-  const AritclesPage({super.key});
+class ArticlesPage extends StatefulWidget {
+  const ArticlesPage({super.key});
 
   @override
-  State<AritclesPage> createState() => _AritclesPageState();
+  State<ArticlesPage> createState() => _ArticlesPageState();
 }
 
-class _AritclesPageState extends State<AritclesPage> with TextStyles {
+class _ArticlesPageState extends State<ArticlesPage> with TextStyles {
   final ArticlesBloc _articlesBloc =
       ArticlesBloc(allArticlesUseCase: getIt<AllArticlesUseCase>());
 

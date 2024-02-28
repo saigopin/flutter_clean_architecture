@@ -7,11 +7,11 @@ class DioOperations implements IDioOperations {
 
   DioOperations(this.dio);
 
-  Future<Response<T>> _handleRequest<T>(
-    Future<Response<T>> Function() requestFunction,
+  Future<Response<dynamic>> _handleRequest(
+    Future<Response<dynamic>> Function() requestFunction,
   ) async {
     try {
-      final Response<T> response = await requestFunction();
+      final Response<dynamic> response = await requestFunction();
       if (response.data == null) {
         throw ServerException('Unknown Error', response.statusCode);
       }
@@ -24,25 +24,25 @@ class DioOperations implements IDioOperations {
   }
 
   @override
-  Future<Response<dynamic>> get<T>(String path) async =>
+  Future<Response<dynamic>> get(String path) async =>
       _handleRequest(() => dio.get(path));
 
   @override
-  Future<Response<dynamic>> delete<T>(String path,
+  Future<Response<dynamic>> delete(String path,
           {Map<String, dynamic>? body}) =>
       _handleRequest(() => dio.delete(path, data: body));
 
   @override
-  Future<Response<dynamic>> patch<T>(String path,
+  Future<Response<dynamic>> patch(String path,
           {Map<String, dynamic>? body}) =>
       _handleRequest(() => dio.patch(path, data: body));
 
   @override
-  Future<Response<dynamic>> post<T>(String path,
+  Future<Response<dynamic>> post(String path,
           {Map<String, dynamic>? body}) =>
       _handleRequest(() => dio.post(path, data: body));
 
   @override
-  Future<Response<dynamic>> put<T>(String path, {Map<String, dynamic>? body}) =>
+  Future<Response<dynamic>> put(String path, {Map<String, dynamic>? body}) =>
       _handleRequest(() => dio.put(path, data: body));
 }
