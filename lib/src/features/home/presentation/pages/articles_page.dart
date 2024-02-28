@@ -11,9 +11,7 @@ import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/a
 import 'package:flutter_clean_architecture/src/features/home/presentation/pages/widgets/articles_list_shimmer_widget.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/bottom_sheet_widget.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/tile_widget.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/articles_list_shimmer_widget.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/theme_switch_widget.dart';
-import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/tile_widget.dart';
 
 class AritclesPage extends StatefulWidget {
   const AritclesPage({super.key});
@@ -32,8 +30,8 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) =>  BottomSheetWidget(
-        heading: "Your Card is now Activated",
-        description: "You can start using your physical\ncard now",
+        heading: 'Your Card is now Activated',
+        description: 'You can start using your physical\ncard now',
         buttonOnPressedHandler: (){},
       ),
     );
