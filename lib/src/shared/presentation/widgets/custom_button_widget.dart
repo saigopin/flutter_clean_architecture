@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/src/core/exports.dart';
 
-class CustomButtonWidget extends StatelessWidget {
+class CustomButtonWidget extends StatelessWidget with ButtonStyles {
   final VoidCallback onPressed;
   final Widget? icon;
   final String text;
@@ -31,15 +32,9 @@ class CustomButtonWidget extends StatelessWidget {
         width: width,
         child: ElevatedButton(
           onPressed: onPressed,
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-            ),
-            padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              contentPadding,
-            ),
+          style: customButtonStyle(
+            contentPadding: contentPadding,
+            borderRadius: borderRadius,
           ),
           child: Row(
             children: <Widget>[

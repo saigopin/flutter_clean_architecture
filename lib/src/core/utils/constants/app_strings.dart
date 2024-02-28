@@ -3,6 +3,7 @@ class AppStrings {
   static const String mobileNumber = 'Mobile Number';
   static const String invalidMobileNumber = 'Invalid Mobile Number';
   static const String login = 'Login';
+  static const String invalidInput = 'Invalid Input';
   static const String noImageURL =
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 }

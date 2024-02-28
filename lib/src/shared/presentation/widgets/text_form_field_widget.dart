@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_clean_architecture/src/core/exports.dart';
+import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final String hintText;
@@ -26,7 +27,7 @@ class TextFormFieldWidget extends StatelessWidget {
   const TextFormFieldWidget({
     Key? key,
     required this.hintText,
-    this.errorMessage = 'Invalid Input',
+    this.errorMessage = AppStrings.invalidInput,
     this.validator,
     this.resolveErrorOnInput = false,
     required this.controller,
@@ -96,7 +97,7 @@ class TextFormFieldWidget extends StatelessWidget {
               color: isError.value ? AppColors.extraRed : AppColors.button,
             ),
             hintStyle: TextStyle(
-              color: AppColors.textHintColor,
+              color: AppColors.textHint,
               fontSize: 16,
               fontWeight: FontWeight.w400,
             ),
