@@ -22,17 +22,17 @@ class AritclesPage extends StatefulWidget {
 
 class _AritclesPageState extends State<AritclesPage> with TextStyles {
   final ArticlesBloc _articlesBloc =
-      ArticlesBloc(allArticlesUseCase: sl<AllArticlesUseCase>());
+      ArticlesBloc(allArticlesUseCase: getIt<AllArticlesUseCase>());
 
   List<Article> articleModelList = <Article>[];
 
   void _tileOnTapHandler() {
     showModalBottomSheet(
       context: context,
-      builder: (BuildContext context) =>  BottomSheetWidget(
+      builder: (BuildContext context) => BottomSheetWidget(
         heading: 'Your Card is now Activated',
         description: 'You can start using your physical\ncard now',
-        buttonOnPressedHandler: (){},
+        buttonOnPressedHandler: () {},
       ),
     );
   }

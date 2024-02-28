@@ -8,6 +8,7 @@ import 'package:flutter_clean_architecture/src/features/home/presentation/pages/
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 import 'src/core/exports.dart';
 
@@ -45,9 +46,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
+      providers: <SingleChildWidget>[
         BlocProvider<ThemeSwitchBloc>(
-          create: (_) => sl<ThemeSwitchBloc>(),
+          create: (_) => getIt<ThemeSwitchBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeSwitchBloc, ThemeSwitchState>(

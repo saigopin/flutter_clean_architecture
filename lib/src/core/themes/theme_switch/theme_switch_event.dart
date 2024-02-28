@@ -4,7 +4,7 @@ sealed class ThemeSwitchEvent extends Equatable {
   const ThemeSwitchEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }
 
 // event for dark theme
