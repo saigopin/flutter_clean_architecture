@@ -17,7 +17,7 @@ class AritclesPage extends StatefulWidget {
 
 class _AritclesPageState extends State<AritclesPage> with TextStyles {
   final ArticlesBloc _articlesBloc =
-      ArticlesBloc(allArticlesUseCase: sl<AllArticlesUseCase>());
+      ArticlesBloc(allArticlesUseCase: getIt<AllArticlesUseCase>());
 
   List<Article> articleModelList = <Article>[];
 
