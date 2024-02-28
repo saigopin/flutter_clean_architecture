@@ -9,4 +9,5 @@ class AppColors {
   static Color activeTextField = Colors.purple;
   static Color errorTextField = Colors.red;
   static Color button = const Color(0xff6a12ef);
+  static Color black = Colors.black;
 }
