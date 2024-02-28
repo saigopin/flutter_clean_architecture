@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/circle_image_widget.dart';
 
-// TODO: need to make the widget responsive
-
 /// Widget to build a list tile
 class TileWidget extends StatelessWidget {
   /// property to check what type of image the user is passing
@@ -38,6 +36,8 @@ class TileWidget extends StatelessWidget {
   /// property to get the trailing subtitle
   final String trailingSubtitle;
 
+  final void Function() onTapHandler;
+
   const TileWidget({
     super.key,
     // TODO: add assertion for the code below that user cannot provide bot the values as true
@@ -46,6 +46,7 @@ class TileWidget extends StatelessWidget {
     required this.image,
     required this.isNetworkImage,
     required this.title,
+    required this.onTapHandler,
     this.subtitle = '',
     this.trailingText = '',
     this.trailingSubtitle = '',
@@ -58,10 +59,13 @@ class TileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-      child: Container(
-        decoration: _tileDecoration(),
-        height: MediaQuery.of(context).size.height * 0.12,
-        child: _buildTileBody(context),
+      child: GestureDetector(
+        onTap: onTapHandler,
+        child: Container(
+          decoration: _tileDecoration(),
+          height: MediaQuery.of(context).size.height * 0.12,
+          child: _buildTileBody(context),
+        ),
       ),
     );
   }
