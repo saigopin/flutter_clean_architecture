@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/data/dto/media_dto.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/article.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/media.dart';
 
 class ArticleDto extends Article {
   const ArticleDto({
@@ -49,11 +50,11 @@ class ArticleDto extends Article {
           type: '',
           title: '',
           abstract: '',
-          desFacet: const [],
-          orgFacet: const [],
-          perFacet: const [],
-          geoFacet: const [],
-          media: const [],
+          desFacet: const <String>[],
+          orgFacet: const <String>[],
+          perFacet: const <String>[],
+          geoFacet: const <String>[],
+          media: const <Media>[],
           etaId: 0,
         );
 
@@ -129,7 +130,8 @@ class ArticleDto extends Article {
       'orgFacet': orgFacet,
       'perFacet': perFacet,
       'geoFacet': geoFacet,
-      'media': (media as List<MediaDto>).map((x) => x.toMap()).toList(),
+      'media':
+          (media as List<MediaDto>).map((MediaDto x) => x.toMap()).toList(),
       'etaId': etaId,
     };
   }
@@ -158,7 +160,7 @@ class ArticleDto extends Article {
       geoFacet: List<String>.from(map['geoFacet'] as List<String>),
       media: List<MediaDto>.from(
         (map['media'] as List<int>).map<MediaDto>(
-          (x) => MediaDto.fromMap(x as Map<String, dynamic>),
+          (int x) => MediaDto.fromMap(x as Map<String, dynamic>),
         ),
       ),
       etaId: map['etaId'] as int,

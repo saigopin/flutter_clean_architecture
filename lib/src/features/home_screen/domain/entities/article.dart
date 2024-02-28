@@ -70,13 +70,13 @@ class Article extends Equatable {
         type = '',
         title = '',
         abstract = '',
-        desFacet = const [],
-        orgFacet = const [],
-        perFacet = const [],
-        geoFacet = const [],
-        media = const [],
+        desFacet = const <String>[],
+        orgFacet = const <String>[],
+        perFacet = const <String>[],
+        geoFacet = const <String>[],
+        media = const <Media>[],
         etaId = 0;
 
   @override
-  List<Object?> get props => [uri, url, id];
+  List<Object?> get props => <Object?>[uri, url, id];
 }

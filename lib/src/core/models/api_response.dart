@@ -13,7 +13,8 @@ class ApiResponse<T> extends Equatable {
     required this.results,
   });
 
-  static fromJson<T>(Map<dynamic, dynamic> json, Function tFromJson) {
+  static ApiResponse<T> fromJson<T>(
+      Map<dynamic, dynamic> json, Function tFromJson) {
     return ApiResponse<T>(
       status: json['status'],
       copyright: json['copyright'],
@@ -23,5 +24,5 @@ class ApiResponse<T> extends Equatable {
   }
 
   @override
-  List<Object?> get props => [status, copyright, numResults, results];
+  List<Object?> get props => <Object?>[status, copyright, numResults, results];
 }

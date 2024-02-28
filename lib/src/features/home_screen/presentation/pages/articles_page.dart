@@ -19,7 +19,7 @@ class _AritclesPageState extends State<AritclesPage> with TextStyles {
   final ArticlesBloc _articlesBloc =
       ArticlesBloc(allArticlesUseCase: sl<AllArticlesUseCase>());
 
-  List<Article> articleModelList = [];
+  List<Article> articleModelList = <Article>[];
 
   @override
   void initState() {

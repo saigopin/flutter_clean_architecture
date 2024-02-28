@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/data/dto/media_meta_data_dto.dart';
 import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/media.dart';
+import 'package:flutter_clean_architecture/src/features/home_screen/domain/entities/media_meta_data.dart';
 
 class MediaDto extends Media {
   const MediaDto({
@@ -19,7 +20,7 @@ class MediaDto extends Media {
           type: '',
           subtype: '',
           caption: '',
-          mediaMetadata: const [],
+          mediaMetadata: const <MediaMetaData>[],
           copyright: '',
           approvedForSyndication: 0,
         );
@@ -44,14 +45,14 @@ class MediaDto extends Media {
   }
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'type': type,
       'subtype': subtype,
       'caption': caption,
       'copyright': copyright,
       'approvedForSyndication': approvedForSyndication,
       'mediaMetadata': (mediaMetadata as List<MediaMetaDataDto>)
-          .map((data) => data.toMap())
+          .map((MediaMetaDataDto data) => data.toMap())
           .toList(),
     };
   }
@@ -64,7 +65,7 @@ class MediaDto extends Media {
       copyright: json['copyright'],
       approvedForSyndication: json['approvedForSyndication'],
       mediaMetadata: (json['mediaMetadata'] as List<dynamic>)
-          .map((data) => MediaMetaDataDto.fromJson(data))
+          .map((dynamic data) => MediaMetaDataDto.fromJson(data))
           .toList(),
     );
   }
