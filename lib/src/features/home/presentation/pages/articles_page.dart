@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/exports.dart';
 import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
-import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
+import 'package:flutter_clean_architecture/src/core/injections.dart';
 import 'package:flutter_clean_architecture/src/features/home/domain/entities/article.dart';
 import 'package:flutter_clean_architecture/src/features/home/domain/usecases/all_articles_usecase.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/bloc/articles_bloc.dart';
@@ -14,6 +14,7 @@ import 'package:flutter_clean_architecture/src/shared/presentation/widgets/tile_
 import 'package:flutter_clean_architecture/src/features/home_screen/presentation/widgets/theme_switch_widget.dart';
 
 class ArticlesPage extends StatefulWidget {
+
   const ArticlesPage({super.key});
 
   @override

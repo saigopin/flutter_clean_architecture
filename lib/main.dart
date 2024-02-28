@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/routing/routes.dart';
 import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
-import 'package:flutter_clean_architecture/src/core/utils/injections.dart';
+import 'package:flutter_clean_architecture/src/core/injections.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/pages/articles_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';

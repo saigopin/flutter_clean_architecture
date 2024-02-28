@@ -6,7 +6,7 @@ import 'package:flutter_clean_architecture/src/features/home/articles_injections
 import 'package:flutter_clean_architecture/src/shared/app_injections.dart';
 import 'package:get_it/get_it.dart';
 import 'package:secure_shared_preferences/secure_shared_preferences.dart';
-import 'loggers/app_logger.dart';
+import 'utils/loggers/app_logger.dart';
 
 final GetIt getIt = GetIt.instance;
 
