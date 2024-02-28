@@ -7,7 +7,7 @@ class Helper {
     return <String, dynamic>{'token': ''};
   }
 
-  static bool isDarkTheme() {
+  static Future<bool> isDarkTheme() {
     return getIt<AppSharedPrefs>().getIsDarkTheme();
   }
 }
