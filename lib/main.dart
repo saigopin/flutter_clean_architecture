@@ -6,6 +6,7 @@ import 'package:flutter_clean_architecture/src/core/routing/routes.dart';
 import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
 import 'package:flutter_clean_architecture/src/core/injections.dart';
 import 'package:flutter_clean_architecture/src/features/home/presentation/pages/articles_page.dart';
+import 'package:flutter_clean_architecture/src/shared/presentation/bloc/theme_switch/theme_switch_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';

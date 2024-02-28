@@ -2,11 +2,11 @@ import 'package:flutter_clean_architecture/src/core/network/dio/dio_network.dart
 import 'package:flutter_clean_architecture/src/core/network/dio/dio_operations.dart';
 import 'package:flutter_clean_architecture/src/core/routing/app_routing.dart';
 import 'package:flutter_clean_architecture/src/core/routing/app_routing_abstract/app_routing_abstract.dart';
+import 'package:flutter_clean_architecture/src/core/utils/loggers/app_logger.dart';
 import 'package:flutter_clean_architecture/src/features/home/articles_injections.dart';
 import 'package:flutter_clean_architecture/src/shared/app_injections.dart';
 import 'package:get_it/get_it.dart';
-import 'package:secure_shared_preferences/secure_shared_preferences.dart';
-import 'utils/loggers/app_logger.dart';
+import 'package:secure_shared_preferences/secure_shared_pref.dart';
 
 final GetIt getIt = GetIt.instance;
 

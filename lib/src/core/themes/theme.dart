@@ -32,6 +32,7 @@ class AppThemes {
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.blue,
       ),
+      
     ),
 
     /* Dark Theme */

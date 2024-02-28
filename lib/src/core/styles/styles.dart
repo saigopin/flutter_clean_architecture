@@ -9,3 +9,19 @@ mixin TextStyles {
   TextStyle largeTextStyle() =>
       const TextStyle(fontSize: Dimenstions.largeTextSize);
 }
+
+mixin ButtonStyles {
+  ButtonStyle customButtonStyle({
+    required EdgeInsets contentPadding,
+    required double borderRadius,
+  }) {
+    return ButtonStyle(
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+      ),
+      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(contentPadding),
+    );
+  }
+}
