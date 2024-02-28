@@ -58,7 +58,7 @@ dependencies:
   # Code generation
   freezed: ^2.4.5
   # Cached network image
-  cached_network_image: ^3.3.0
+  cached_network_image: ^3.3.1
   # Device preview to test app in all devices
   device_preview: ^1.1.0
   # Handle Success/Error State From Data Source
@@ -67,6 +67,9 @@ dependencies:
   shared_preferences: ^2.2.2
   # provider state management
   provider: ^6.1.1
+  shimmer: ^3.0.0
+  hydrated_bloc: ^9.1.4
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:

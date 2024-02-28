@@ -52,7 +52,7 @@ class LoggerInterceptor extends Interceptor {
     }
     if (requestBody) {
       logPrint('data:');
-      _printAll(options.data);
+      _printAll(options.data.toString());
     }
     logPrint('');
     return super.onRequest(options, handler);

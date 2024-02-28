@@ -5,6 +5,8 @@ export 'utils/loggers/logger.dart';
 //dimentsions
 export 'dimenstions/dimenstions.dart';
 //styles
-export 'styles/theme.dart';
 export 'styles/styles.dart';
 export 'styles/app_colors.dart';
+//themes
+export 'themes/theme.dart';
+export 'themes/theme_switch/theme_switch_bloc.dart';
