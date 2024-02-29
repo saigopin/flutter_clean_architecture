@@ -80,7 +80,6 @@ class TextFormFieldWidget extends StatelessWidget {
                       )
                     ],
                   ),
-            // errorStyle: TextStyle(color: AppColors.extraRed),
           ),
           style: TextStyle(
             fontSize: 16,
