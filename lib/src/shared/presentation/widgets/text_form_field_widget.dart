@@ -57,49 +57,9 @@ class TextFormFieldWidget extends StatelessWidget {
               minHeight: 64.0,
               minWidth: 380.0,
             ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.lightGrey,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.lightGrey,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.extraRed,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.button,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.extraRed,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
             labelText: hintText,
-            labelStyle: TextStyle(
-              fontSize: 16,
-              color: AppColors.black,
-              fontWeight: FontWeight.w400,
-            ),
             floatingLabelStyle: TextStyle(
               color: isError.value ? AppColors.extraRed : AppColors.button,
-            ),
-            hintStyle: TextStyle(
-              color: AppColors.textHint,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
             ),
             error: !isError.value
                 ? null
@@ -120,11 +80,13 @@ class TextFormFieldWidget extends StatelessWidget {
                       )
                     ],
                   ),
-            errorStyle: TextStyle(color: AppColors.extraRed),
+            // errorStyle: TextStyle(color: AppColors.extraRed),
           ),
           style: TextStyle(
             fontSize: 16,
-            color: isError.value ? AppColors.extraRed : AppColors.black,
+            color: isError.value
+                ? AppColors.extraRed
+                : Theme.of(context).textTheme.titleSmall!.color,
             fontWeight: FontWeight.w400,
           ),
           validator: (String? value) {

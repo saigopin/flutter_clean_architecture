@@ -62,9 +62,9 @@ class MyApp extends StatelessWidget {
               navigatorKey: navigatorKey,
               title: AppStrings.appName,
               builder: DevicePreview.appBuilder,
-              theme: state.switchValue
-                  ? AppThemes.appThemeData[AppTheme.darkTheme]
-                  : AppThemes.appThemeData[AppTheme.lightTheme],
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              themeMode: state.switchValue ? ThemeMode.dark : ThemeMode.light,
               debugShowCheckedModeBanner: false,
               home: const AritclesPage(),
             ),

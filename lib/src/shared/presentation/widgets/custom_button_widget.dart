@@ -2,52 +2,63 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/core/exports.dart';
 
 class CustomButtonWidget extends StatelessWidget with ButtonStyles {
-  final VoidCallback onPressed;
-  final Widget? icon;
-  final String text;
+  final CustomButtonType customButtonType;
+  final Widget child;
+  final double buttonWidth;
+  final double buttonHeight;
   final double borderRadius;
-  final double width;
-  final Alignment alignment;
-  final EdgeInsets contentPadding;
+  final Function() onPressed;
+  final Color? disabledBackgroundColor;
+  final Color? disabledTextColor;
+  final bool isButtonDisabled;
+  final bool showBorder;
 
   const CustomButtonWidget({
     super.key,
     required this.onPressed,
-    required this.text,
+    this.customButtonType = CustomButtonType.elevated,
+    required this.child,
+    this.buttonWidth = 188,
+    this.buttonHeight = 64,
     this.borderRadius = 8.0,
-    this.width = double.infinity,
-    this.alignment = Alignment.topRight,
-    this.icon,
-    this.contentPadding = const EdgeInsets.symmetric(
-      horizontal: 10,
-      vertical: 10,
-    ),
+    this.disabledBackgroundColor,
+    this.disabledTextColor,
+    this.isButtonDisabled = false,
+    this.showBorder = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: alignment,
-      child: SizedBox(
-        width: width,
-        child: ElevatedButton(
-          onPressed: onPressed,
-          style: customButtonStyle(
-            contentPadding: contentPadding,
+    switch (customButtonType) {
+      case CustomButtonType.outlined:
+        return OutlinedButton(
+          onPressed: isButtonDisabled ? null : onPressed,
+          style: outlinedButtonStyle(
+            buttonWidth: buttonWidth,
+            buttonHeight: buttonHeight,
             borderRadius: borderRadius,
+            onPressed: onPressed,
+            isButtonDisabled: isButtonDisabled,
+            showBorder: showBorder,
+            disabledBackgroundColor: disabledBackgroundColor,
+            disabledTextColor: disabledTextColor,
           ),
-          child: Row(
-            children: <Widget>[
-              if (icon != null)
-                Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: icon!,
-                ),
-              Text(text),
-            ],
+          child: child,
+        );
+      default:
+        return ElevatedButton(
+          onPressed: isButtonDisabled ? null : onPressed,
+          style: elevatedButtonStyle(
+            buttonWidth: buttonWidth,
+            buttonHeight: buttonHeight,
+            borderRadius: borderRadius,
+            onPressed: onPressed,
+            isButtonDisabled: isButtonDisabled,
+            disabledBackgroundColor: disabledBackgroundColor,
+            disabledTextColor: disabledTextColor,
           ),
-        ),
-      ),
-    );
+          child: child,
+        );
+    }
   }
 }
