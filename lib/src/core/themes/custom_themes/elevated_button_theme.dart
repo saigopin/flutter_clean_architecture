@@ -3,16 +3,12 @@ import 'package:flutter_clean_architecture/src/core/dimenstions/dimenstions.dart
 import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
 
 class BaseElevatedButtonTheme {
-  static ButtonStyle getButtonStyle(
-      Color foregroundColor,
-      Color backgroundColor,
-      Color disabledBackgroundColor,
-      Color disabledForegroundColor) {
+  static ButtonStyle getButtonStyle({required Color disabledForegroundColor}) {
     return ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: foregroundColor,
-      backgroundColor: backgroundColor,
-      disabledBackgroundColor: disabledBackgroundColor,
+      foregroundColor: AppColors.white,
+      backgroundColor: AppColors.button,
+      disabledBackgroundColor: AppColors.grey,
       disabledForegroundColor: disabledForegroundColor,
       side: const BorderSide(color: Colors.grey),
       textStyle: const TextStyle().copyWith(
@@ -33,10 +29,7 @@ class TElevatedButtonTheme {
   static final ElevatedButtonThemeData lightElevatedButtonTheme =
       ElevatedButtonThemeData(
     style: BaseElevatedButtonTheme.getButtonStyle(
-      AppColors.white,
-      AppColors.button,
-      AppColors.grey,
-      AppColors.black,
+      disabledForegroundColor: AppColors.black,
     ),
   );
 
@@ -44,10 +37,7 @@ class TElevatedButtonTheme {
   static final ElevatedButtonThemeData darkElevatedButtonTheme =
       ElevatedButtonThemeData(
     style: BaseElevatedButtonTheme.getButtonStyle(
-      AppColors.white,
-      AppColors.button,
-      AppColors.grey,
-      AppColors.white,
+      disabledForegroundColor: AppColors.white,
     ),
   );
 }
