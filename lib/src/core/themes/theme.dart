@@ -1,69 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
+import 'package:flutter_clean_architecture/src/core/themes/custom_themes/elevated_button_theme.dart';
+import 'package:flutter_clean_architecture/src/core/themes/custom_themes/outlined_button_theme.dart';
+import 'package:flutter_clean_architecture/src/core/themes/custom_themes/text_field_theme.dart';
+import 'package:flutter_clean_architecture/src/core/themes/custom_themes/text_theme.dart';
 
-enum AppTheme {
-  darkTheme,
-  lightTheme,
-}
+class AppTheme {
+  AppTheme._();
 
-class AppThemes {
-  /* light theme */
-  static final Map<AppTheme, ThemeData> appThemeData = <AppTheme, ThemeData>{
-    AppTheme.darkTheme: ThemeData(
-      primaryColor: Colors.black,
-      brightness: Brightness.dark,
-      dividerColor: Colors.black54,
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(Colors.white),
-        ),
-      ),
-      textTheme: const TextTheme(
-        titleMedium: TextStyle(color: Colors.white),
-      ),
-      popupMenuTheme: const PopupMenuThemeData(
-        surfaceTintColor: Colors.black,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
-      ),
-      
-    ),
+  static ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'Poppins',
+    brightness: Brightness.light,
+    primaryColor: AppColors.appPrimary,
+    scaffoldBackgroundColor: AppColors.white,
+    textTheme: TTextTheme.lightTextTheme,
+    elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
+    outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTHeme,
+    inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
+  );
 
-    /* Dark Theme */
-    AppTheme.lightTheme: ThemeData(
-      primaryColor: Colors.white,
-      brightness: Brightness.light,
-      scaffoldBackgroundColor: Colors.white,
-      dividerColor: const Color(0xff757575),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(Colors.black),
-        ),
-      ),
-      textTheme: const TextTheme(
-        titleMedium: TextStyle(color: Colors.black),
-      ),
-      popupMenuTheme: const PopupMenuThemeData(
-        surfaceTintColor: Colors.white,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
-      ),
-    ),
-  };
+  static ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'Poppins',
+    brightness: Brightness.dark,
+    primaryColor: AppColors.appPrimary,
+    scaffoldBackgroundColor: AppColors.black,
+    textTheme: TTextTheme.darkTextTheme,
+    elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
+    outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTHeme,
+    inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
+  );
 }
