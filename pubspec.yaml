@@ -70,8 +70,12 @@ dependencies:
   shimmer: ^3.0.0
   # routing
   go_router: ^13.2.0
+  # Efficient state management library for Flutter, extending the bloc package with state persistence across app restarts.
   hydrated_bloc: ^9.1.4
+  # Flutter plugin offering easy access to common storage paths on the device, simplifying file and directory operations.
   path_provider: ^2.1.2
+  # SVG (Scalable Vector Graphics) rendering support for Flutter applications, enabling the display of vector graphics with high-quality resolution.
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -101,8 +105,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  # - assets/images/
+  assets:
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

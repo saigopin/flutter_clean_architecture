@@ -12,6 +12,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
   final Color? disabledTextColor;
   final bool isButtonDisabled;
   final bool showBorder;
+  final EdgeInsets? padding;
 
   const CustomButtonWidget({
     super.key,
@@ -25,6 +26,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
     this.disabledTextColor,
     this.isButtonDisabled = false,
     this.showBorder = true,
+    this.padding = const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   });
 
   @override
@@ -42,6 +44,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
             showBorder: showBorder,
             disabledBackgroundColor: disabledBackgroundColor,
             disabledTextColor: disabledTextColor,
+            padding: padding,
           ),
           child: child,
         );

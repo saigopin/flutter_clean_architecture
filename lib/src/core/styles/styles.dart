@@ -17,6 +17,8 @@ mixin ButtonStyles {
     required bool showBorder,
     Color? disabledBackgroundColor,
     Color? disabledTextColor,
+    EdgeInsets? padding =
+        const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   }) {
     return OutlinedButton.styleFrom(
       fixedSize: Size(buttonWidth, buttonHeight),
@@ -26,7 +28,7 @@ mixin ButtonStyles {
       side: showBorder ? const BorderSide() : BorderSide.none,
       disabledBackgroundColor: disabledBackgroundColor,
       disabledForegroundColor: disabledTextColor,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: padding,
     );
   }
 
@@ -38,6 +40,8 @@ mixin ButtonStyles {
     bool isButtonDisabled = false,
     Color? disabledBackgroundColor,
     Color? disabledTextColor,
+    EdgeInsets? padding =
+        const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   }) {
     return ElevatedButton.styleFrom(
       fixedSize: Size(buttonWidth, buttonHeight),
@@ -46,7 +50,7 @@ mixin ButtonStyles {
       ),
       disabledBackgroundColor: disabledBackgroundColor,
       disabledForegroundColor: disabledTextColor,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: padding,
     );
   }
 }
