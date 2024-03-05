@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/assets/assets.dart';
 import 'package:flutter_clean_architecture/src/core/enums/enums.dart';
 import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
+import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/cubit/cubit/internet_cubit.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/custom_button_widget.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,7 +47,7 @@ class NoInternetScreen extends StatelessWidget {
                   children: <Widget>[
                     Icon(Icons.refresh, size: 30),
                     Text(
-                      'Refresh',
+                      AppStrings.refresh,
                       style: TextStyle(fontSize: 20),
                     ),
                   ],

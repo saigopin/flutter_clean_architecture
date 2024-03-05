@@ -12,7 +12,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
   final Color? disabledTextColor;
   final bool isButtonDisabled;
   final bool showBorder;
-  final EdgeInsets? padding;
+  final EdgeInsets padding;
 
   const CustomButtonWidget({
     super.key,

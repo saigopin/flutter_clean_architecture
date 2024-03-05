@@ -17,7 +17,7 @@ mixin ButtonStyles {
     required bool showBorder,
     Color? disabledBackgroundColor,
     Color? disabledTextColor,
-    EdgeInsets? padding =
+    EdgeInsets padding =
         const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   }) {
     return OutlinedButton.styleFrom(
@@ -40,7 +40,7 @@ mixin ButtonStyles {
     bool isButtonDisabled = false,
     Color? disabledBackgroundColor,
     Color? disabledTextColor,
-    EdgeInsets? padding =
+    EdgeInsets padding =
         const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   }) {
     return ElevatedButton.styleFrom(
