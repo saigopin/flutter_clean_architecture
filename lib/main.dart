@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/routing/routes.dart';
 import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
 import 'package:flutter_clean_architecture/src/core/injections.dart';
+import 'package:flutter_clean_architecture/src/features/auth/presentation/cubit/signin/signin_cubit.dart';
+import 'package:flutter_clean_architecture/src/features/auth/presentation/cubit/signup/signup_cubit.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/bloc/theme_switch/theme_switch_bloc.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/cubit/cubit/internet_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,6 +52,12 @@ class MyApp extends StatelessWidget {
       providers: <SingleChildWidget>[
         BlocProvider<ThemeSwitchBloc>(
           create: (_) => getIt<ThemeSwitchBloc>(),
+        ),
+        BlocProvider<SigninCubit>(
+          create: (_) => getIt<SigninCubit>(),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (_) => getIt<SignupCubit>(),
         ),
         BlocProvider<NetworkCubit>(
           create: (_) => getIt<NetworkCubit>(),

@@ -9,3 +9,5 @@ export 'styles/styles.dart';
 export 'styles/app_colors.dart';
 //themes
 export 'themes/theme.dart';
+//extensions
+export 'utils/extensions/extensions.dart';
