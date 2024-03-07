@@ -1,12 +1,9 @@
-import 'package:flutter_clean_architecture/src/core/network/dio/dio_network.dart';
-import 'package:flutter_clean_architecture/src/core/network/dio/dio_operations.dart';
-import 'package:flutter_clean_architecture/src/core/routing/app_routing.dart';
-import 'package:flutter_clean_architecture/src/core/routing/app_routing_abstract/app_routing_abstract.dart';
-import 'package:flutter_clean_architecture/src/core/utils/loggers/app_logger.dart';
-import 'package:flutter_clean_architecture/src/features/home/articles_injections.dart';
-import 'package:flutter_clean_architecture/src/shared/app_injections.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
+import 'package:flutter_clean_architecture/src/features/home/home.dart';
+import 'package:flutter_clean_architecture/src/shared/shared.dart';
 import 'package:get_it/get_it.dart';
-import 'package:secure_shared_preferences/secure_shared_pref.dart';
+import 'package:secure_shared_preferences/secure_shared_preferences.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -15,6 +12,7 @@ Future<void> initInjections() async {
   await initRoutingInjections();
   initAppInjections();
   initArticleInjections();
+  initAuthInjections();
   await initSharedPrefsInjections();
 }
 
