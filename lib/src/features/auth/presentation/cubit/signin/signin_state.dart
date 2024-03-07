@@ -7,14 +7,14 @@ class SigninState extends Equatable {
 
   const SigninState({
     this.email = const BlocFormField(
-      errorMessage: 'Invalid Email',
-      hintText: 'Enter Email',
-      labelText: 'Email',
+      errorMessage: AppStrings.emailErrorMsg,
+      hintText: AppStrings.emailHint,
+      labelText: AppStrings.emailErrorMsg,
     ),
     this.password = const BlocFormField(
-      hintText: 'Enter Password',
-      labelText: 'Password',
-      errorMessage: 'Invalid Password',
+      hintText: AppStrings.passwordHint,
+      labelText: AppStrings.password,
+      errorMessage: AppStrings.passwordErrorMsg,
       showObscureText: true,
     ),
     this.formKey,

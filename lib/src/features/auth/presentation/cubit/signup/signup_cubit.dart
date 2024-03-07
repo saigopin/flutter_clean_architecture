@@ -133,20 +133,20 @@ class SignupCubit extends Cubit<SignupState> {
 
     // Validate and set error messages here
     final String emailError = !email.value.isValidEmail || email.value.isEmpty
-        ? 'Enter Valid Email'
+        ? email.errorMessage
         : '';
 
     final String passwordError =
         !password.value.isValidPassword || password.value.isEmpty
-            ? 'Enter Valid Password'
+            ? password.errorMessage
             : '';
 
     final String confirmPasswordError =
         !confirmPassword.value.isValidPassword || confirmPassword.value.isEmpty
-            ? 'Enter Valid Confirm Password'
+            ? confirmPassword.errorMessage
             : password.value.isEqual(confirmPassword.value)
                 ? ''
-                : 'Password Not Matched';
+                : AppStrings.passwordNotMatched;
 
     // Update the state with the validated values and error messages
     emit(
@@ -154,11 +154,12 @@ class SignupCubit extends Cubit<SignupState> {
         firstName: state.firstName.copyWith(
           isError: state.firstName.value.isEmpty,
           errorMessage:
-              state.firstName.value.isEmpty ? 'Invalid First Name' : '',
+              state.firstName.value.isEmpty ? state.firstName.errorMessage : '',
         ),
         lastName: state.lastName.copyWith(
           isError: state.lastName.value.isEmpty,
-          errorMessage: state.lastName.value.isEmpty ? 'Invalid Last Name' : '',
+          errorMessage:
+              state.lastName.value.isEmpty ? state.lastName.errorMessage : '',
         ),
         email: email.copyWith(
           isError: emailError.isNotEmpty,

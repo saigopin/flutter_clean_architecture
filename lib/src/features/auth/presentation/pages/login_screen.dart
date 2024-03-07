@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/injections.dart';
-import 'package:flutter_clean_architecture/src/core/routing/app_routing_abstract/app_routing_abstract.dart';
-import 'package:flutter_clean_architecture/src/core/routing/route_constants.dart';
-import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
-import 'package:flutter_clean_architecture/src/shared/domain/entities/bloc_form_field.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/widgets/custom_button_widget.dart';
 import 'package:flutter_clean_architecture/src/shared/shared.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -29,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     const Text(
-                      'Welcome Back,\nLogin to Continue',
+                      AppStrings.loginWelcomeText,
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -78,20 +73,20 @@ class LoginScreen extends StatelessWidget {
                       },
                       buttonHeight: 50,
                       buttonWidth: 400,
-                      child: const Text('Login'),
+                      child: const Text(AppStrings.login),
                     ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text("Don't have an Account ?"),
+                        const Text(AppStrings.dontHaveAnAccount),
                         GestureDetector(
                             onTap: () {
                               context.read<SigninCubit>().formReset();
                               getIt.get<AppRoutingAbstract>().navigate(
                                   context, RouteConstants.kSignUpScreen.path);
                             },
-                            child: const Text('Register')),
+                            child: const Text(AppStrings.register)),
                       ],
                     ),
                   ],

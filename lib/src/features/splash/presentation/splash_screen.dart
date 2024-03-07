@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/routing/app_routing_abstract/app_routing_abstract.dart';
-import 'package:flutter_clean_architecture/src/core/routing/route_constants.dart';
-import 'package:flutter_clean_architecture/src/core/injections.dart';
-import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -38,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: AppColors.button,
       body: Center(
         child: Text(
-          'Clean Arch',
+          AppStrings.cleanArch,
           style: TextStyle(
             fontSize: 25,
             color: AppColors.white,
