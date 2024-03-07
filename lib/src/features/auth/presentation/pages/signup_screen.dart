@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
-import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
-import 'package:flutter_clean_architecture/src/shared/shared.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

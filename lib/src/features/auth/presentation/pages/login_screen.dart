@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
-import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
-import 'package:flutter_clean_architecture/src/shared/shared.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -89,6 +89,41 @@ class LoginScreen extends StatelessWidget {
                             child: const Text(AppStrings.register)),
                       ],
                     ),
+                    const SizedBox(height: 40),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Divider(
+                            height: 1,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text('Or'),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            height: 1,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 40),
+                    CustomButtonWidget(
+                      onPressed: () => getIt
+                          .get<AppRoutingAbstract>()
+                          .navigate(context, RouteConstants.kOTPScreen.path),
+                      customButtonType: CustomButtonType.outlined,
+                      buttonHeight: 50,
+                      borderColor: AppColors.button,
+                      buttonWidth: MediaQuery.of(context).size.width,
+                      child: Text(
+                        'Login With OTP',
+                        style: TextStyle(color: AppColors.button),
+                      ),
+                    )
                   ],
                 ),
               );

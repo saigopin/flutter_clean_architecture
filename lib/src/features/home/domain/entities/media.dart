@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_clean_architecture/src/features/home/home.dart';
+import 'package:flutter_clean_architecture/src/features/home/home_exports.dart';
 
 class Media extends Equatable {
   final String type;

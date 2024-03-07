@@ -23,6 +23,9 @@ class AppStrings {
   static const String lastName = 'Last Name';
   static const String lastNameHint = 'Enter Last Name';
   static const String lastNameErrMsg = 'Invalid Last Name';
+  static const String enterOTP = 'Enter OTP';
+  static const String resendOTP = 'Resend OTP';
+  static const String verifyOTP = 'Verify OTP';
   static const String passwordNotMatched =
       'Password & Confirm password not matched';
   static const String alreadyHaveAnAccount = 'Already have an Account ?';

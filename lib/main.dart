@@ -2,9 +2,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
-import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
-import 'package:flutter_clean_architecture/src/shared/shared.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
@@ -96,6 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
           designSize: const Size(360, 690),
           minTextAdapt: true,
           splitScreenMode: true,
+          useInheritedMediaQuery: true,
           child: MaterialApp.router(
             routerConfig: router,
             title: AppStrings.appName,

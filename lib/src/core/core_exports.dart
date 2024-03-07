@@ -47,6 +47,7 @@ export 'themes/custom_themes/elevated_button_theme.dart';
 export 'themes/custom_themes/outlined_button_theme.dart';
 export 'themes/custom_themes/text_field_theme.dart';
 export 'themes/custom_themes/text_theme.dart';
+export 'themes/custom_themes/app_bar_theme.dart';
 
 // utils -> constants
 export 'utils/constants/app_strings.dart';

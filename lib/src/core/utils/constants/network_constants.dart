@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/src/core/core.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 class NetworkConstants {
   static const Map<AppEnvironment, String> _baseUrls = <AppEnvironment, String>{

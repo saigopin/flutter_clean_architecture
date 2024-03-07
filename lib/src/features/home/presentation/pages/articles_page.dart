@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
-import 'package:flutter_clean_architecture/src/features/home/home.dart';
-import 'package:flutter_clean_architecture/src/shared/shared.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/features/home/home_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 
 class ArticlesPage extends StatefulWidget {
   const ArticlesPage({super.key});

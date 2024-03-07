@@ -9,7 +9,7 @@ class SigninState extends Equatable {
     this.email = const BlocFormField(
       errorMessage: AppStrings.emailErrorMsg,
       hintText: AppStrings.emailHint,
-      labelText: AppStrings.emailErrorMsg,
+      labelText: AppStrings.email,
     ),
     this.password = const BlocFormField(
       hintText: AppStrings.passwordHint,

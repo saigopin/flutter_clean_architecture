@@ -13,4 +13,7 @@ class AppColors {
   static Color lightGrey = const Color(0xFFD0D0D0);
   static Color textHint = const Color(0xFF545863);
   static Color extraRed = const Color(0xFFEB0101);
+  static Color otpBackground = const Color(0xFFFBF9FF);
+  static Color otpErrorBackground = const Color(0xFFFFFCFC);
+  static Color silverGrey = const Color(0xFFDBDBDB);
 }

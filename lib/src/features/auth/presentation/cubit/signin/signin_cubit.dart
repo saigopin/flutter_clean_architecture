@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
-import 'package:flutter_clean_architecture/src/shared/shared.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 
 part 'signin_state.dart';
 
@@ -73,12 +73,12 @@ class SigninCubit extends Cubit<SigninState> {
 
     // Validate and set error messages here
     final String emailError = !email.value.isValidEmail || email.value.isEmpty
-        ? 'Enter Valid Email'
+        ? email.errorMessage
         : '';
 
     final String passwordError =
         !password.value.isValidPassword || password.value.isEmpty
-            ? 'Enter Valid Password'
+            ? password.errorMessage
             : '';
 
     // Update the state with the validated values and error messages

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:flutter_clean_architecture/src/core/core.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final String hintText;
@@ -13,7 +13,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final List<TextInputFormatter>? inputFormatters;
   final TextCapitalization textCapitalization;
-  final TextAlign textAlign = TextAlign.start;
+  final TextAlign textAlign;
   final TextInputAction textInputAction;
   final FocusNode? focusNode;
   final TextInputType keyboardType;
@@ -34,11 +34,12 @@ class TextFormFieldWidget extends StatelessWidget {
   final Function(String? value)? onChanged;
   final bool isError;
 
-  TextFormFieldWidget({
+  const TextFormFieldWidget({
     Key? key,
     required this.hintText,
     this.labelText,
     this.errorMessage = AppStrings.invalidInput,
+    this.textAlign = TextAlign.start,
     this.validator,
     this.resolveErrorOnInput = false,
     this.controller,
@@ -66,8 +67,24 @@ class TextFormFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<TextInputFormatter> getFormatter() {
+      List<TextInputFormatter> inputFormatters = <TextInputFormatter>[];
+      if (acceptsOnlyNumbers) {
+        inputFormatters.add(FilteringTextInputFormatter.digitsOnly);
+      } else if (acceptsNumbersWithDecimals) {
+        inputFormatters
+            .add(FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')));
+      }
+      if (inputFormatters.isEmpty) {
+        inputFormatters
+            .add(FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9.]')));
+        inputFormatters = inputFormatters;
+      }
+      return inputFormatters;
+    }
+
     return TextFormField(
-      inputFormatters: inputFormatters,
+      inputFormatters: getFormatter(),
       textCapitalization: textCapitalization,
       textAlign: textAlign,
       textInputAction: textInputAction,
@@ -140,6 +157,7 @@ class TextFormFieldWidget extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(Dimenstions.size12),
         ),
+        counterText: '',
       ),
       style: const TextStyle(
         fontSize: 16,

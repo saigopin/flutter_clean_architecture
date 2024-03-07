@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/errors/failures.dart';
-import 'package:flutter_clean_architecture/src/features/home/home.dart';
+import 'package:flutter_clean_architecture/src/features/home/home_exports.dart';
 
 part 'articles_event.dart';
 part 'articles_state.dart';

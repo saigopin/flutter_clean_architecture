@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
-import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
-import 'package:flutter_clean_architecture/src/features/home/home.dart';
-import 'package:flutter_clean_architecture/src/features/splash/splash.dart';
-import 'package:flutter_clean_architecture/src/shared/shared.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
+import 'package:flutter_clean_architecture/src/features/home/home_exports.dart';
+import 'package:flutter_clean_architecture/src/features/splash/splash_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 import 'package:go_router/go_router.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -42,6 +42,16 @@ final GoRouter router = GoRouter(
         return MaterialPage<dynamic>(
           key: state.pageKey,
           child: const SignUpScreen(),
+        );
+      },
+    ),
+    GoRoute(
+      name: RouteConstants.kOTPScreen.name,
+      path: RouteConstants.kOTPScreen.path,
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return MaterialPage<dynamic>(
+          key: state.pageKey,
+          child: const OTPScreen(),
         );
       },
     ),

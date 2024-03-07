@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/core.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 class AppTheme {
   AppTheme._();
@@ -10,6 +10,7 @@ class AppTheme {
     brightness: Brightness.light,
     primaryColor: AppColors.appPrimary,
     scaffoldBackgroundColor: AppColors.white,
+    appBarTheme: TAppBarTheme.lightAppBarTheme,
     textTheme: TTextTheme.lightTextTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTHeme,
@@ -22,6 +23,7 @@ class AppTheme {
     brightness: Brightness.dark,
     primaryColor: AppColors.appPrimary,
     scaffoldBackgroundColor: AppColors.black,
+    appBarTheme: TAppBarTheme.darkAppBarTheme,
     textTheme: TTextTheme.darkTextTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTHeme,
