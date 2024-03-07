@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 class CustomButtonWidget extends StatelessWidget with ButtonStyles {
   final CustomButtonType customButtonType;

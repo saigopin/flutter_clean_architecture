@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
-import 'package:flutter_clean_architecture/src/core/injections.dart';
-import 'package:flutter_clean_architecture/src/core/routing/route_constants.dart';
-import 'package:flutter_clean_architecture/src/features/auth/presentation/pages/login_screen.dart';
-import 'package:flutter_clean_architecture/src/features/auth/presentation/pages/signup_screen.dart';
-import 'package:flutter_clean_architecture/src/features/home/presentation/pages/articles_page.dart';
-import 'package:flutter_clean_architecture/src/features/splash/presentation/splash_screen.dart';
-import 'package:flutter_clean_architecture/src/shared/data/local_data/app_shared_prefs.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/pages/no_internet_screen.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
+import 'package:flutter_clean_architecture/src/features/home/home.dart';
+import 'package:flutter_clean_architecture/src/features/splash/splash.dart';
+import 'package:flutter_clean_architecture/src/shared/shared.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../shared/presentation/cubit/cubit/internet_cubit.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final NetworkCubit network = getIt<NetworkCubit>();

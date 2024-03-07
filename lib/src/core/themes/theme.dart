@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
-import 'package:flutter_clean_architecture/src/core/themes/custom_themes/elevated_button_theme.dart';
-import 'package:flutter_clean_architecture/src/core/themes/custom_themes/outlined_button_theme.dart';
-import 'package:flutter_clean_architecture/src/core/themes/custom_themes/text_field_theme.dart';
-import 'package:flutter_clean_architecture/src/core/themes/custom_themes/text_theme.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 class AppTheme {
   AppTheme._();

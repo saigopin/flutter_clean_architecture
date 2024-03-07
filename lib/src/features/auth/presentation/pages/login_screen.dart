@@ -4,7 +4,7 @@ import 'package:flutter_clean_architecture/src/core/injections.dart';
 import 'package:flutter_clean_architecture/src/core/routing/app_routing_abstract/app_routing_abstract.dart';
 import 'package:flutter_clean_architecture/src/core/routing/route_constants.dart';
 import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
-import 'package:flutter_clean_architecture/src/features/auth/presentation/cubit/signin/signin_cubit.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth.dart';
 import 'package:flutter_clean_architecture/src/shared/domain/entities/bloc_form_field.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/custom_button_widget.dart';
 import 'package:flutter_clean_architecture/src/shared/shared.dart';
@@ -81,14 +81,19 @@ class LoginScreen extends StatelessWidget {
                       child: const Text('Login'),
                     ),
                     const SizedBox(height: 20),
-                    IconButton(
-                      onPressed: () {
-                        context.read<SigninCubit>().formReset();
-                        getIt.get<AppRoutingAbstract>().navigate(
-                            context, RouteConstants.kSignUpScreen.path);
-                      },
-                      icon: const Icon(Icons.app_registration_rounded),
-                    )
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        const Text("Don't have an Account ?"),
+                        GestureDetector(
+                            onTap: () {
+                              context.read<SigninCubit>().formReset();
+                              getIt.get<AppRoutingAbstract>().navigate(
+                                  context, RouteConstants.kSignUpScreen.path);
+                            },
+                            child: const Text('Register')),
+                      ],
+                    ),
                   ],
                 ),
               );

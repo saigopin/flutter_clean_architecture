@@ -128,12 +128,20 @@ class SignUpScreen extends StatelessWidget {
                     child: const Text('SignUp'),
                   ),
                   const SizedBox(height: 20),
-                  IconButton(
-                    onPressed: () => getIt
-                        .get<AppRoutingAbstract>()
-                        .navigate(context, RouteConstants.kLoginScreen.path),
-                    icon: const Icon(Icons.app_registration_rounded),
-                  )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      const Text('Already have an Account ?'),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<SignupCubit>().formReset();
+                          getIt.get<AppRoutingAbstract>().navigate(
+                              context, RouteConstants.kLoginScreen.path);
+                        },
+                        child: const Text('Login'),
+                      ),
+                    ],
+                  ),
                 ],
               );
             },

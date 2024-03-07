@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/widgets/circle_image_widget.dart';
+import 'package:flutter_clean_architecture/src/shared/shared.dart';
 
 /// Widget to build a list tile
 class TileWidget extends StatelessWidget {

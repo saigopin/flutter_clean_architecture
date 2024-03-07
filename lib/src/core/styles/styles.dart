@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 mixin TextStyles {
   TextStyle smallTextStyle() => const TextStyle(fontSize: Dimenstions.size12);

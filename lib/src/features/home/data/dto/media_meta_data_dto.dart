@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
-import 'package:flutter_clean_architecture/src/features/home/domain/entities/media_meta_data.dart';
+import 'package:flutter_clean_architecture/src/features/home/home.dart';
 
 class MediaMetaDataDto extends MediaMetaData {
   const MediaMetaDataDto({

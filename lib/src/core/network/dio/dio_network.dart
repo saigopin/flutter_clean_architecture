@@ -2,11 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
-import 'package:flutter_clean_architecture/src/core/helper/helper.dart';
-import 'package:flutter_clean_architecture/src/core/utils/loggers/app_logger.dart';
-
-import 'logger_interceptor.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 class DioNetwork {
   static late Dio appAPI;

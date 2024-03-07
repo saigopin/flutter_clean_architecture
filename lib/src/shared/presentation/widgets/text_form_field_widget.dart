@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:flutter_clean_architecture/src/core/exports.dart';
-import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final String hintText;

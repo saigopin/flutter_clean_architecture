@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
-import 'package:flutter_clean_architecture/src/shared/domain/entities/bloc_form_field.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
+import 'package:flutter_clean_architecture/src/shared/shared.dart';
 
 part 'signup_state.dart';
 

@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/src/core/routing/app_route_config.dart';
+import 'package:flutter_clean_architecture/src/core/core.dart';
 
 class RouteConstants {
   static const AppRouteConfig kSplashScreen =
