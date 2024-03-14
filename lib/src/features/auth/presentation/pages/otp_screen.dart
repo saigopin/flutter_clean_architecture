@@ -45,7 +45,6 @@ class OTPScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     OTPWidget(
                       onOtpEntered: (String value) {},
-                      isError: true,
                     ),
                     const SizedBox(height: 20),
                     Visibility(

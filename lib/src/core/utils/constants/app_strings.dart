@@ -26,6 +26,8 @@ class AppStrings {
   static const String enterOTP = 'Enter OTP';
   static const String resendOTP = 'Resend OTP';
   static const String verifyOTP = 'Verify OTP';
+  static const String loginWithOTP = 'Login With OTP';
+  static const String orText = 'Or';
   static const String passwordNotMatched =
       'Password & Confirm password not matched';
   static const String alreadyHaveAnAccount = 'Already have an Account ?';

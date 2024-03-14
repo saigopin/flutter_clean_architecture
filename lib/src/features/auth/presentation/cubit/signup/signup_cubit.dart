@@ -9,12 +9,15 @@ part 'signup_state.dart';
 class SignupCubit extends Cubit<SignupState> {
   SignupCubit() : super(SignupInitial()) {
     init();
+    formReset();
   }
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void init() {
-    emit(state.copyWith(formKey: formKey));
+    emit(
+      state.copyWith(formKey: formKey),
+    );
   }
 
   void emailChanged(BlocFormField email) {
@@ -99,27 +102,23 @@ class SignupCubit extends Cubit<SignupState> {
       state.copyWith(
         email: state.email.copyWith(
           isError: false,
-          errorMessage: '',
           value: '',
         ),
         firstName: state.firstName.copyWith(
           isError: false,
-          errorMessage: '',
           value: '',
         ),
         lastName: state.lastName.copyWith(
           isError: false,
-          errorMessage: '',
           value: '',
         ),
         confirmPassword: state.confirmPassword.copyWith(
           isError: false,
-          errorMessage: '',
+          errorMessage: AppStrings.confirmPasswordErrorMsg,
           value: '',
         ),
         password: state.password.copyWith(
           isError: false,
-          errorMessage: '',
           value: '',
         ),
       ),
@@ -132,46 +131,41 @@ class SignupCubit extends Cubit<SignupState> {
     final BlocFormField confirmPassword = state.confirmPassword;
 
     // Validate and set error messages here
-    final String emailError = !email.value.isValidEmail || email.value.isEmpty
-        ? email.errorMessage
-        : '';
+    final bool emailError = !email.value.isValidEmail || email.value.isEmpty;
 
-    final String passwordError =
-        !password.value.isValidPassword || password.value.isEmpty
-            ? password.errorMessage
-            : '';
+    final bool passwordError =
+        !password.value.isValidPassword || password.value.isEmpty;
 
-    final String confirmPasswordError =
-        !confirmPassword.value.isValidPassword || confirmPassword.value.isEmpty
-            ? confirmPassword.errorMessage
-            : password.value.isEqual(confirmPassword.value)
-                ? ''
-                : AppStrings.passwordNotMatched;
+    final bool confirmPasswordError =
+        !confirmPassword.value.isValidPassword || confirmPassword.value.isEmpty;
+
+    final bool isPasswordMatched =
+        password.value.isEqual(confirmPassword.value);
+
+    final String confirmPasswordErrorMsg = confirmPasswordError
+        ? AppStrings.confirmPasswordErrorMsg
+        : (!confirmPasswordError && !isPasswordMatched)
+            ? AppStrings.passwordNotMatched
+            : AppStrings.confirmPasswordErrorMsg;
 
     // Update the state with the validated values and error messages
     emit(
       state.copyWith(
         firstName: state.firstName.copyWith(
           isError: state.firstName.value.isEmpty,
-          errorMessage:
-              state.firstName.value.isEmpty ? state.firstName.errorMessage : '',
         ),
         lastName: state.lastName.copyWith(
           isError: state.lastName.value.isEmpty,
-          errorMessage:
-              state.lastName.value.isEmpty ? state.lastName.errorMessage : '',
         ),
         email: email.copyWith(
-          isError: emailError.isNotEmpty,
-          errorMessage: emailError,
+          isError: emailError,
         ),
         password: password.copyWith(
-          isError: passwordError.isNotEmpty,
-          errorMessage: passwordError,
+          isError: passwordError,
         ),
         confirmPassword: confirmPassword.copyWith(
-          isError: confirmPasswordError.isNotEmpty,
-          errorMessage: confirmPasswordError,
+          isError: confirmPasswordError || !isPasswordMatched,
+          errorMessage: confirmPasswordErrorMsg,
         ),
       ),
     );

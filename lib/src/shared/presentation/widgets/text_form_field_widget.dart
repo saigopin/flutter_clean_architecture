@@ -68,19 +68,20 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<TextInputFormatter> getFormatter() {
-      List<TextInputFormatter> inputFormatters = <TextInputFormatter>[];
-      if (acceptsOnlyNumbers) {
-        inputFormatters.add(FilteringTextInputFormatter.digitsOnly);
-      } else if (acceptsNumbersWithDecimals) {
-        inputFormatters
-            .add(FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')));
-      }
-      if (inputFormatters.isEmpty) {
-        inputFormatters
-            .add(FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9.]')));
-        inputFormatters = inputFormatters;
-      }
-      return inputFormatters;
+      // List<TextInputFormatter> inputFormatters = <TextInputFormatter>[];
+      // if (acceptsOnlyNumbers) {
+      //   inputFormatters.add(FilteringTextInputFormatter.digitsOnly);
+      // } else if (acceptsNumbersWithDecimals) {
+      //   inputFormatters
+      //       .add(FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')));
+      // }
+      // if (inputFormatters.isEmpty) {
+      //   inputFormatters
+      //       .add(FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9.]')));
+      //   inputFormatters = inputFormatters;
+      // }
+      // return inputFormatters;
+      return <TextInputFormatter>[];
     }
 
     return TextFormField(

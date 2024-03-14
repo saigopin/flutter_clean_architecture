@@ -9,6 +9,7 @@ part 'signin_state.dart';
 class SigninCubit extends Cubit<SigninState> {
   SigninCubit() : super(const SigninState()) {
     init();
+    formReset();
   }
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -55,12 +56,10 @@ class SigninCubit extends Cubit<SigninState> {
       state.copyWith(
         email: state.email.copyWith(
           isError: false,
-          errorMessage: '',
           value: '',
         ),
         password: state.password.copyWith(
           isError: false,
-          errorMessage: '',
           value: '',
         ),
       ),
@@ -72,25 +71,19 @@ class SigninCubit extends Cubit<SigninState> {
     final BlocFormField password = state.password;
 
     // Validate and set error messages here
-    final String emailError = !email.value.isValidEmail || email.value.isEmpty
-        ? email.errorMessage
-        : '';
+    final bool emailError = !email.value.isValidEmail || email.value.isEmpty;
 
-    final String passwordError =
-        !password.value.isValidPassword || password.value.isEmpty
-            ? password.errorMessage
-            : '';
+    final bool passwordError =
+        !password.value.isValidPassword || password.value.isEmpty;
 
     // Update the state with the validated values and error messages
     emit(
       state.copyWith(
         email: email.copyWith(
-          isError: emailError.isNotEmpty,
-          errorMessage: emailError,
+          isError: emailError,
         ),
         password: password.copyWith(
-          isError: passwordError.isNotEmpty,
-          errorMessage: passwordError,
+          isError: passwordError,
         ),
       ),
     );
