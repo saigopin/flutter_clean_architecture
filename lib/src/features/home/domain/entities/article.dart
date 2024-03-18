@@ -1,7 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:equatable/equatable.dart';
-import 'package:flutter_clean_architecture/src/features/home/domain/entities/media.dart';
+import 'package:flutter_clean_architecture/src/features/home/home_exports.dart';
 
 class Article extends Equatable {
   final String uri;

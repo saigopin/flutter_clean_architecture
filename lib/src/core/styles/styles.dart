@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 mixin TextStyles {
   TextStyle smallTextStyle() => const TextStyle(fontSize: Dimenstions.size12);
@@ -17,6 +17,7 @@ mixin ButtonStyles {
     required bool showBorder,
     Color? disabledBackgroundColor,
     Color? disabledTextColor,
+    Color? borderColor,
     EdgeInsets padding =
         const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   }) {
@@ -25,7 +26,9 @@ mixin ButtonStyles {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),
       ),
-      side: showBorder ? const BorderSide() : BorderSide.none,
+      side: showBorder
+          ? BorderSide(color: borderColor ?? AppColors.black)
+          : BorderSide.none,
       disabledBackgroundColor: disabledBackgroundColor,
       disabledForegroundColor: disabledTextColor,
       padding: padding,

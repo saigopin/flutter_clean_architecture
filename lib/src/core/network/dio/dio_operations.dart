@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_architecture/src/core/errors/expections.dart';
-import 'package:flutter_clean_architecture/src/core/network/dio/dio_operations_abstract.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 class DioOperations implements IDioOperations {
   final Dio dio;

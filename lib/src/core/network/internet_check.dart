@@ -1,5 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_clean_architecture/src/core/utils/loggers/logger.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 abstract class NetworkInfo {
   Future<bool> isConnected();

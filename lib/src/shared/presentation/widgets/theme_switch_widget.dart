@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/bloc/theme_switch/theme_switch_bloc.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 
 class ThemeSwitchWidget extends StatelessWidget {
   const ThemeSwitchWidget({super.key});

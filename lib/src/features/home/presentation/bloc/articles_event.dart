@@ -1,3 +1,5 @@
+part of 'articles_bloc.dart';
+
 abstract class ArticlesEvent {
   const ArticlesEvent();
 }

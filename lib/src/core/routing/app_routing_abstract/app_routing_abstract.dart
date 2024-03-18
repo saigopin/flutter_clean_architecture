@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 abstract class AppRoutingAbstract {
   void navigate(BuildContext context, String path);

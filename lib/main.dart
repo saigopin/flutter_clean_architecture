@@ -2,17 +2,13 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/src/core/routing/routes.dart';
-import 'package:flutter_clean_architecture/src/core/utils/constants/app_strings.dart';
-import 'package:flutter_clean_architecture/src/core/injections.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/bloc/theme_switch/theme_switch_bloc.dart';
-import 'package:flutter_clean_architecture/src/shared/presentation/cubit/cubit/internet_cubit.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
+import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/single_child_widget.dart';
-
-import 'src/core/exports.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
@@ -50,6 +46,12 @@ class MyApp extends StatelessWidget {
       providers: <SingleChildWidget>[
         BlocProvider<ThemeSwitchBloc>(
           create: (_) => getIt<ThemeSwitchBloc>(),
+        ),
+        BlocProvider<SigninCubit>(
+          create: (_) => getIt<SigninCubit>(),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (_) => getIt<SignupCubit>(),
         ),
         BlocProvider<NetworkCubit>(
           create: (_) => getIt<NetworkCubit>(),
@@ -94,6 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
           designSize: const Size(360, 690),
           minTextAdapt: true,
           splitScreenMode: true,
+          useInheritedMediaQuery: true,
           child: MaterialApp.router(
             routerConfig: router,
             title: AppStrings.appName,

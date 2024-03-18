@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/dimenstions/dimenstions.dart';
-import 'package:flutter_clean_architecture/src/core/styles/app_colors.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 class TOutlinedButtonTheme {
   TOutlinedButtonTheme._();

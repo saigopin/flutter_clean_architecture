@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/routing/app_routing_abstract/app_routing_abstract.dart';
-import 'package:flutter_clean_architecture/src/core/utils/typedef/typedef.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouting implements AppRoutingAbstract {

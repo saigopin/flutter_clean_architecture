@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/src/core/exports.dart';
+import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
 class CustomButtonWidget extends StatelessWidget with ButtonStyles {
   final CustomButtonType customButtonType;
@@ -10,6 +10,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
   final Function() onPressed;
   final Color? disabledBackgroundColor;
   final Color? disabledTextColor;
+  final Color? borderColor;
   final bool isButtonDisabled;
   final bool showBorder;
   final EdgeInsets padding;
@@ -26,6 +27,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
     this.disabledTextColor,
     this.isButtonDisabled = false,
     this.showBorder = true,
+    this.borderColor,
     this.padding = const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
   });
 
@@ -42,6 +44,7 @@ class CustomButtonWidget extends StatelessWidget with ButtonStyles {
             onPressed: onPressed,
             isButtonDisabled: isButtonDisabled,
             showBorder: showBorder,
+            borderColor: borderColor,
             disabledBackgroundColor: disabledBackgroundColor,
             disabledTextColor: disabledTextColor,
             padding: padding,
