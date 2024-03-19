@@ -22,7 +22,7 @@ environment:
   sdk: ">=3.2.5 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
+# To automatically upgrade your package depeflutter: decryptedndencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
@@ -76,6 +76,8 @@ dependencies:
   path_provider: ^2.1.2
   # SVG (Scalable Vector Graphics) rendering support for Flutter applications, enabling the display of vector graphics with high-quality resolution.
   flutter_svg: ^2.0.10+1
+  # Easy and Fast internationalizing and localization your Flutter Apps, this package simplify the internationalizing process
+  easy_localization: ^3.0.5
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +109,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/svg/
+    - assets/language/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

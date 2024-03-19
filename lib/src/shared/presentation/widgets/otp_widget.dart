@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_clean_architecture/src/core/core_exports.dart';
@@ -53,7 +54,7 @@ class _OTPWidgetState extends State<OTPWidget> {
                 ),
                 const SizedBox(width: 5),
                 Text(
-                  'Incorrect OTP',
+                  AppStrings.invalidOTP.tr(),
                   style: TextStyle(
                     color: AppColors.extraRed,
                     fontSize: 12,

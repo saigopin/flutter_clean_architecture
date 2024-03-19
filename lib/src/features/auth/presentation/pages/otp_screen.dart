@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 import 'package:flutter_clean_architecture/src/shared/presentation/widgets/otp_widget.dart';
@@ -22,9 +23,9 @@ class OTPScreen extends StatelessWidget {
               weight: 1.0,
             ),
           ),
-          title: const Text(
-            AppStrings.enterOTP,
-            style: TextStyle(
+          title: Text(
+            AppStrings.enterOTP.tr(),
+            style: const TextStyle(
               fontWeight: FontWeight.normal,
             ),
           ),
@@ -45,6 +46,7 @@ class OTPScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     OTPWidget(
                       onOtpEntered: (String value) {},
+                      isError: true,
                     ),
                     const SizedBox(height: 20),
                     Visibility(

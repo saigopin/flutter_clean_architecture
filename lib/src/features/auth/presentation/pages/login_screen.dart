@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
+import 'package:flutter_clean_architecture/src/shared/presentation/widgets/language_menu.dart';
 import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -52,35 +54,41 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text(
-                      AppStrings.loginWelcomeText,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          AppStrings.loginWelcomeText.tr(),
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        LanguageMenu(context: context)
+                      ],
                     ),
                     const SizedBox(height: 30),
                     TextFormFieldWidget(
-                      labelText: state.email.labelText,
+                      labelText: state.email.labelText.tr(),
                       onChanged: (String? value) =>
                           onEmailChanged(value, context),
                       isError: state.email.isError,
                       prefixIcon: const Icon(Icons.person_outline),
-                      errorMessage: state.email.errorMessage,
-                      hintText: state.email.hintText,
+                      errorMessage: state.email.errorMessage.tr(),
+                      hintText: state.email.hintText.tr(),
                       isActive: state.email.value.isNotEmpty,
                       isRequired: true,
                     ),
                     const SizedBox(height: 20),
                     TextFormFieldWidget(
-                      labelText: state.password.labelText,
-                      hintText: state.password.hintText,
+                      labelText: state.password.labelText.tr(),
+                      hintText: state.password.hintText.tr(),
                       onChanged: (String? value) =>
                           onPasswordChanged(value, context),
                       obscureText: state.password.showObscureText,
                       prefixIcon: const Icon(Icons.key),
                       isError: state.password.isError,
                       isActive: state.password.value.isNotEmpty,
-                      errorMessage: state.password.errorMessage,
+                      errorMessage: state.password.errorMessage.tr(),
                       suffixIcon: InkWell(
                         onTap: () => togglePassword(context),
                         child: Icon(
@@ -96,16 +104,16 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () => onFormSubmit(context),
                       buttonHeight: 50,
                       buttonWidth: 400,
-                      child: const Text(AppStrings.login),
+                      child: Text(AppStrings.login.tr()),
                     ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        const Text(AppStrings.dontHaveAnAccount),
+                        Text(AppStrings.dontHaveAnAccount.tr()),
                         GestureDetector(
                             onTap: () => navigateToRegisterScreen(context),
-                            child: const Text(AppStrings.register)),
+                            child: Text(AppStrings.register.tr())),
                       ],
                     ),
                     const SizedBox(height: 40),
@@ -117,9 +125,9 @@ class LoginScreen extends StatelessWidget {
                             color: AppColors.grey,
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(AppStrings.orText),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(AppStrings.orText.tr()),
                         ),
                         Expanded(
                           child: Divider(
@@ -137,10 +145,10 @@ class LoginScreen extends StatelessWidget {
                       borderColor: AppColors.button,
                       buttonWidth: MediaQuery.of(context).size.width,
                       child: Text(
-                        AppStrings.loginWithOTP,
+                        AppStrings.loginWithOTP.tr(),
                         style: TextStyle(color: AppColors.button),
                       ),
-                    )
+                    ),
                   ],
                 ),
               );
