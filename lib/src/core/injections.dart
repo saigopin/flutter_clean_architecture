@@ -25,6 +25,8 @@ Future<void> initInitialInjections() async {
   final LocalizationService localizationService = LocalizationService();
   await localizationService.init();
 
+  getIt.registerSingleton<LocalizationService>(localizationService);
+
   // created the storage variable instance to store the data in local storage
   HydratedStorage storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
