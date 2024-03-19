@@ -1,14 +1,13 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 import 'package:flutter_clean_architecture/src/features/auth/auth_exports.dart';
 import 'package:flutter_clean_architecture/src/shared/shared_exports.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:provider/single_child_widget.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
@@ -17,20 +16,20 @@ void main() async {
   // Inject all dependencies
   await initInjections();
 
-  // created the storage variable instance to store the data in local storage
-  HydratedStorage storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationDocumentsDirectory(),
+  runApp(
+    DevicePreview(
+      builder: (BuildContext context) {
+        return EasyLocalization(
+          supportedLocales: getIt<LocalizationService>().getSupportedLocales(),
+          startLocale: getIt<LocalizationService>().getFallbackLocale(),
+          path: getIt<LocalizationService>().getAssetsPath(),
+          fallbackLocale: getIt<LocalizationService>().getFallbackLocale(),
+          child: const MyApp(),
+        );
+      },
+      enabled: false,
+    ),
   );
-
-  // using the HydratedBloc to implement the Hydrated bloc storage
-  HydratedBloc.storage = storage;
-
-  runApp(DevicePreview(
-    builder: (BuildContext context) {
-      return const MyApp();
-    },
-    enabled: false,
-  ));
 
   SystemChrome.setPreferredOrientations(
       <DeviceOrientation>[DeviceOrientation.portraitUp]);
@@ -99,6 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
           useInheritedMediaQuery: true,
           child: MaterialApp.router(
             routerConfig: router,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             title: AppStrings.appName,
             builder: DevicePreview.appBuilder,
             theme: AppTheme.lightTheme,

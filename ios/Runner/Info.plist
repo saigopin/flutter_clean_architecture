@@ -47,5 +47,11 @@
 	<true/>
 	<key>com.apple.security.network.client</key>
 	<true/>
+	<key>CFBundleLocalizations</key>
+    <array>
+	   <string>en-US</string>
+	   <string>hi-IN</string>
+	   <string>te-IN</string>
+    </array>
 </dict>
 </plist>

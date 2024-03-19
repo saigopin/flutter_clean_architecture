@@ -26,6 +26,9 @@ export 'network/dio/logger_interceptor.dart';
 // network -> internet chk
 export 'network/internet_check.dart';
 
+// localization
+export 'localization/localization_service.dart';
+
 // routing
 export 'routing/app_route_config.dart';
 export 'routing/app_routing.dart';

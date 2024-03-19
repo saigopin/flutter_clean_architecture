@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/src/core/core_exports.dart';
@@ -59,59 +60,59 @@ class SignUpScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Text(
-                    AppStrings.registerWelcomeText,
-                    style: TextStyle(
+                  Text(
+                    AppStrings.registerWelcomeText.tr(),
+                    style: const TextStyle(
                       fontSize: 20,
                     ),
                   ),
                   const SizedBox(height: 30),
                   TextFormFieldWidget(
-                    labelText: state.firstName.labelText,
+                    labelText: state.firstName.labelText.tr(),
                     onChanged: (String? value) =>
                         onFirstNameChanged(value, context),
                     isError: state.firstName.isError,
                     prefixIcon: const Icon(Icons.person_outline),
-                    errorMessage: state.firstName.errorMessage,
-                    hintText: state.firstName.hintText,
+                    errorMessage: state.firstName.errorMessage.tr(),
+                    hintText: state.firstName.hintText.tr(),
                     isActive: state.firstName.value.isNotEmpty,
                     isRequired: true,
                   ),
                   const SizedBox(height: 15),
                   TextFormFieldWidget(
-                    labelText: state.lastName.labelText,
+                    labelText: state.lastName.labelText.tr(),
                     onChanged: (String? value) =>
                         onLastNameChanged(value, context),
                     isError: state.lastName.isError,
                     prefixIcon: const Icon(Icons.person_outline),
-                    errorMessage: state.lastName.errorMessage,
-                    hintText: state.lastName.hintText,
+                    errorMessage: state.lastName.errorMessage.tr(),
+                    hintText: state.lastName.hintText.tr(),
                     isActive: state.lastName.value.isNotEmpty,
                     isRequired: true,
                   ),
                   const SizedBox(height: 15),
                   TextFormFieldWidget(
-                    labelText: state.email.labelText,
+                    labelText: state.email.labelText.tr(),
                     onChanged: (String? value) =>
                         onEmailChanged(value, context),
                     isError: state.email.isError,
                     prefixIcon: const Icon(Icons.email_outlined),
-                    errorMessage: state.email.errorMessage,
-                    hintText: state.email.hintText,
+                    errorMessage: state.email.errorMessage.tr(),
+                    hintText: state.email.hintText.tr(),
                     isActive: state.email.value.isNotEmpty,
                     isRequired: true,
                   ),
                   const SizedBox(height: 15),
                   TextFormFieldWidget(
-                    labelText: state.password.labelText,
-                    hintText: state.password.hintText,
+                    labelText: state.password.labelText.tr(),
+                    hintText: state.password.hintText.tr(),
                     onChanged: (String? value) =>
                         onPasswordChanged(value, context),
                     obscureText: state.password.showObscureText,
                     prefixIcon: const Icon(Icons.key_outlined),
                     isError: state.password.isError,
                     isActive: state.password.value.isNotEmpty,
-                    errorMessage: state.password.errorMessage,
+                    errorMessage: state.password.errorMessage.tr(),
                     suffixIcon: InkWell(
                       onTap: () => togglePassword(context),
                       child: Icon(
@@ -124,15 +125,15 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   TextFormFieldWidget(
-                    labelText: state.confirmPassword.labelText,
-                    hintText: state.confirmPassword.hintText,
+                    labelText: state.confirmPassword.labelText.tr(),
+                    hintText: state.confirmPassword.hintText.tr(),
                     onChanged: (String? value) =>
                         onConfirnPasswordChanged(value, context),
                     obscureText: state.confirmPassword.showObscureText,
                     prefixIcon: const Icon(Icons.key_outlined),
                     isError: state.confirmPassword.isError,
                     isActive: state.confirmPassword.value.isNotEmpty,
-                    errorMessage: state.confirmPassword.errorMessage,
+                    errorMessage: state.confirmPassword.errorMessage.tr(),
                     suffixIcon: InkWell(
                       onTap: () => toggleConfirmPassword(context),
                       child: Icon(
@@ -148,16 +149,16 @@ class SignUpScreen extends StatelessWidget {
                     onPressed: () => onFormFieldSubmitted(context),
                     buttonHeight: 50,
                     buttonWidth: 400,
-                    child: const Text(AppStrings.register),
+                    child: Text(AppStrings.register.tr()),
                   ),
                   const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      const Text(AppStrings.alreadyHaveAnAccount),
+                      Text(AppStrings.alreadyHaveAnAccount.tr()),
                       GestureDetector(
                         onTap: () => navigateToLoginScreen(context),
-                        child: const Text(AppStrings.login),
+                        child: Text(AppStrings.login.tr()),
                       ),
                     ],
                   ),

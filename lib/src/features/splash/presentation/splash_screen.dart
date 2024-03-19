@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/src/core/core_exports.dart';
 
@@ -35,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: AppColors.button,
       body: Center(
         child: Text(
-          AppStrings.cleanArch,
+          AppStrings.cleanArch.tr(),
           style: TextStyle(
             fontSize: 25,
             color: AppColors.white,
